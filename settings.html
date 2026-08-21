@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexite | Settings</title>
+    <link rel="icon" type="image/svg+xml" href="/stuff/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --settings-accent: #ff4545;
+            --settings-accent-dark: #83261f;
+            --settings-border: #5c2424;
+            --settings-button: #83261f;
+            --settings-button-hover: #ff4545;
+            --settings-panel: rgba(24, 9, 9, 0.86);
+            --settings-muted: #b79595;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 15% 15%,
+                    color-mix(in srgb, var(--settings-accent) 18%, transparent),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    color-mix(in srgb, var(--settings-accent-dark) 26%, transparent),
+                    transparent 36%
+                ),
+                #270f0f;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        #settings-page {
+            position: relative;
+            z-index: 10;
+            width: calc(100% - 18px);
+            margin: 0 auto;
+            padding: 84px 0 70px;
+            text-transform: lowercase;
+            text-align: center !important;
+        }
+
+        #settings-page .settings-card,
+        #settings-page .settings-card * {
+            text-align: center !important;
+        }
+
+        .settings-heading {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .settings-heading > div {
+            width: 100%;
+            text-align: center;
+        }
+
+        .settings-heading h1 {
+            width: 100%;
+            margin: 0;
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1;
+            text-align: center;
+        }
+
+        .settings-heading p {
+            margin: 0;
+            color: var(--settings-muted);
+            font-size: 13px;
+        }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(240px, 1fr));
+            gap: 14px;
+        }
+
+        .settings-card {
+            min-width: 0;
+            min-height: 250px;
+            padding: 22px;
+            text-align: center !important;
+            background: var(--settings-panel);
+            border: 2px solid var(--settings-border);
+            border-radius: 14px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(10px);
+        }
+
+        .settings-card.wide {
+            grid-column: auto;
+        }
+
+        .settings-card h2 {
+            margin: 0 0 6px;
+            font-size: 15px;
+        }
+
+        .settings-card > p {
+            margin: 0 0 12px;
+            color: var(--settings-muted);
+            font-size: 11px;
+            line-height: 1.6;
+            text-align: center !important;
+        }
+
+        .settings-card h2,
+        .settings-card strong,
+        .settings-card span {
+            text-align: center !important;
+        }
+
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+            gap: 9px;
+        }
+
+        .theme-select,
+        .cloak-select {
+            width: 100%;
+            min-height: 45px;
+            padding: 10px 12px;
+            color: #fff;
+            background: rgba(10, 5, 5, 0.8);
+            border: 1px solid var(--settings-border);
+            border-radius: 9px;
+            outline: none;
+            font: 600 14px "Quicksand", sans-serif;
+        }
+
+        .cloak-select:focus {
+            border-color: var(--settings-accent);
+            box-shadow: 0 0 0 3px color-mix(
+                in srgb,
+                var(--settings-accent) 20%,
+                transparent
+            );
+        }
+
+        .choice-button,
+        .theme-choice {
+            min-height: 43px;
+            padding: 10px 12px;
+            color: #fff;
+            text-align: left;
+            background: rgba(10, 5, 5, 0.68);
+            border: 1px solid var(--settings-border);
+            border-radius: 9px;
+            cursor: pointer;
+            transition:
+                transform 0.18s ease,
+                background 0.18s ease,
+                border-color 0.18s ease;
+        }
+
+        .choice-button:hover,
+        .theme-choice:hover,
+        .choice-button.selected,
+        .theme-choice.selected {
+            background: var(--settings-accent-dark);
+            border-color: var(--settings-accent);
+            transform: translateY(-2px);
+        }
+
+        .theme-choice {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            text-align: center;
+        }
+
+        .theme-swatch {
+            width: 25px;
+            height: 25px;
+            flex: 0 0 auto;
+            border-radius: 7px;
+            background: var(--swatch);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+        }
+
+        /* =========================
+           CUSTOM CLOAK FORM
+           ========================= */
+
+        .settings-actions,
+        .toggle-row,
+        .custom-form {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .settings-actions {
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        .custom-form {
+            justify-content: center;
+            width: 100%;
+        }
+
+        .custom-form input {
+            flex: 0 0 210px;
+            width: 210px;
+            max-width: 210px;
+            min-width: 0;
+            height: 38px;
+            box-sizing: border-box;
+
+            padding: 7px 12px;
+
+            color: #fff;
+            background: rgba(5, 3, 3, 0.75);
+
+            border: 1px solid var(--settings-border);
+            border-radius: 11px;
+
+            outline: none;
+
+            font: 600 12px "Quicksand", sans-serif;
+            text-align: center !important;
+
+            transition:
+                border-color 0.18s ease,
+                box-shadow 0.18s ease,
+                background 0.18s ease;
+        }
+
+        .custom-form input::placeholder {
+            font-size: 10px !important;
+            text-align: center !important;
+            opacity: 0.65;
+        }
+
+        .custom-form input:focus {
+            border-color: var(--settings-accent);
+            background: rgba(10, 4, 4, 0.9);
+
+            box-shadow: 0 0 0 3px color-mix(
+                in srgb,
+                var(--settings-accent) 20%,
+                transparent
+            );
+        }
+
+        .settings-button {
+            min-height: 40px;
+            padding: 9px 14px;
+            color: #fff;
+            background: var(--settings-button);
+            border: 1px solid var(--settings-border);
+            border-radius: 9px;
+            font: 700 11px "Quicksand", sans-serif;
+            cursor: pointer;
+
+            transition:
+                transform 0.18s ease,
+                background 0.18s ease,
+                border-color 0.18s ease;
+        }
+
+        .settings-button:hover {
+            background: var(--settings-button-hover);
+            border-color: var(--settings-accent);
+            transform: translateY(-2px);
+        }
+
+        .settings-button.secondary {
+            background: transparent;
+        }
+
+        .toggle-row {
+            justify-content: center;
+            flex-direction: column;
+            padding: 13px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .toggle-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .toggle-button {
+            min-width: 66px;
+            padding: 10px 8px;
+            color: #fff;
+            background: rgba(34, 6, 6, 0.8);
+            border: 1px solid transparent;
+            border-radius: 8px;
+            font: 600 13px "Quicksand", sans-serif;
+            cursor: pointer;
+        }
+
+        .toggle-button.active,
+        .toggle-button:hover {
+            background: var(--settings-button);
+            border-color: var(--settings-accent);
+        }
+
+        .toggle-row:last-child {
+            border-bottom: 0;
+        }
+
+        .toggle-copy strong,
+        .toggle-copy span {
+            display: block;
+        }
+
+        .toggle-copy strong {
+            font-size: 12px;
+        }
+
+        .toggle-copy span {
+            margin-top: 3px;
+            color: var(--settings-muted);
+            font-size: 10px;
+        }
+
+        .switch {
+            position: relative;
+            width: 48px;
+            height: 27px;
+            flex: 0 0 auto;
+        }
+
+        .switch input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .switch-track {
+            position: absolute;
+            inset: 0;
+            background: #3a2020;
+            border: 1px solid var(--settings-border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .switch-track::after {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 19px;
+            height: 19px;
+            content: "";
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+        }
+
+        .switch input:checked + .switch-track {
+            background: var(--settings-accent-dark);
+            border-color: var(--settings-accent);
+        }
+
+        .switch input:checked + .switch-track::after {
+            transform: translateX(21px);
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 12px;
+            color: var(--settings-muted);
+            font-size: 12px;
+        }
+
+        .debug-output {
+            display: none;
+            margin-top: 14px;
+            padding: 12px;
+            overflow: auto;
+            color: #d8ffd8;
+            background: #080d08;
+            border: 1px solid #274627;
+            border-radius: 8px;
+            font: 12px/1.6 Consolas, monospace;
+            white-space: pre-wrap;
+        }
+
+        .debug-output.visible {
+            display: block;
+        }
+
+        #particles-js {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        #cornerimage {
+            transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+        }
+
+        body[data-theme="default"] #cornerimage {
+            filter: none;
+        }
+
+        body[data-theme="baka"] #cornerimage {
+            filter: sepia(0.75) saturate(1.45) hue-rotate(350deg) drop-shadow(0 0 18px #f5c54288);
+        }
+
+        body[data-theme="miku"] #cornerimage {
+            filter: hue-rotate(105deg) saturate(1.25) drop-shadow(0 0 18px #54e3c288);
+        }
+
+        body[data-theme="teto"] #cornerimage {
+            filter: saturate(1.35) drop-shadow(0 0 20px #ff729d88);
+        }
+
+        body[data-theme="meximath"] #cornerimage {
+            filter: sepia(0.7) saturate(1.5) hue-rotate(355deg) drop-shadow(0 0 18px #f5a52488);
+        }
+
+        body[data-theme="truffled"] #cornerimage {
+            filter: sepia(0.5) saturate(0.8) brightness(0.85) drop-shadow(0 0 18px #c48a6188);
+        }
+
+        body[data-theme="purple"] #cornerimage {
+            filter: hue-rotate(225deg) saturate(1.25) drop-shadow(0 0 20px #b084ff88);
+        }
+
+        body[data-theme="sakura"] #cornerimage {
+            filter: hue-rotate(300deg) saturate(1.15) drop-shadow(0 0 20px #ff9fc788);
+        }
+
+        body[data-theme="firey"] #cornerimage {
+            filter: sepia(0.8) saturate(1.8) hue-rotate(330deg) drop-shadow(0 0 20px #ff6b2188);
+        }
+
+        body[data-theme="evil"] #cornerimage {
+            filter: grayscale(0.75) contrast(1.25) hue-rotate(55deg) drop-shadow(0 0 20px #b8ff3d88);
+        }
+
+        body.mobile-sizing #settings-page {
+            width: min(560px, calc(100% - 18px));
+        }
+
+        body.mobile-sizing .settings-grid {
+            grid-template-columns: 1fr;
+        }
+
+        body.mobile-sizing .settings-card.wide {
+            grid-column: auto;
+        }
+
+        @media (max-width: 760px) {
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .settings-heading {
+                display: block;
+            }
+
+            .settings-heading p {
+                margin-top: 9px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .custom-form input {
+                flex: 0 1 220px;
+                width: 220px;
+                max-width: 100%;
+            }
+        }
+
+        @media (min-width: 761px) and (max-width: 980px) {
+            .settings-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="particles-js"></div>
+
+    <div id="loading-screen">
+        <div class="spinner">
+            <div style="--rotation:90"></div>
+            <div style="--rotation:180"></div>
+            <div style="--rotation:270"></div>
+            <div style="--rotation:360"></div>
+        </div>
+
+        <h1 id="loading-title">loading the loading...</h1>
+        <p id="messageforyou">getting everything ready...</p>
+        <p id="elementcounter">0/0 loaded...</p>
+
+        <button id="skiploading" type="button" onclick="skipLoading()">skip</button>
+
+        <div id="loadingbar"></div>
+    </div>
+
+    <header id="header">
+
+        <img
+            src="/stuff/logo.png"
+            class="top-logo"
+            style="width: 76px; height: 76px; object-fit: contain;"
+            alt="Home"
+            onclick="location.href='/'"
+        >
+
+        <div class="header-right">
+
+            <button
+                class="header-button"
+                type="button"
+                onclick="location.href='math.html'"
+                title="Math"
+            >
+                <img src="/stuff/icons/calc.svg" alt="Math">
+            </button>
+
+            <button
+                class="header-button"
+                type="button"
+                onclick="location.href='/Ultraviolet-App-main/index.html'"
+                title="Apps"
+            >
+                <img src="/stuff/icons/web.png" alt="Web">
+            </button>
+
+            <button
+                class="header-button"
+                type="button"
+                onclick="location.href='something.html'"
+                title="Partners"
+            >
+                <img src="/stuff/icons/handshake-solid.svg" alt="Partners">
+            </button>
+
+            <button
+                class="header-button"
+                type="button"
+                onclick="location.href='extras.html'"
+                title="Extras"
+            >
+                <img src="/stuff/icons/plus-solid.svg" alt="Extras">
+            </button>
+
+        </div>
+    </header>
+
+    <main id="settings-page">
+
+        <div class="settings-heading">
+            <div>
+                <h1>settings</h1>
+            </div>
+        </div>
+
+        <div class="settings-grid">
+
+            <section class="settings-card wide">
+
+                <h2>Tab Cloak</h2>
+
+                <select
+                    class="cloak-select"
+                    id="cloak-presets"
+                    aria-label="Preset tab cloak"
+                >
+                    <option value="">Choose a preset cloak...</option>
+                </select>
+
+                <div class="settings-actions">
+
+                    <button
+                        class="settings-button"
+                        id="set-cloak"
+                        type="button"
+                    >
+                        Set Cloak
+                    </button>
+
+                    <button
+                        class="settings-button secondary"
+                        id="reset-cloak"
+                        type="button"
+                    >
+                        Reset Cloak
+                    </button>
+
+                </div>
+
+                <span class="status" id="cloak-status">
+                    No cloak selected.
+                </span>
+
+            </section>
+
+
+            <section class="settings-card wide">
+
+                <h2>Custom Cloak</h2>
+
+                <div class="custom-form">
+
+                    <input
+                        id="custom-title"
+                        type="text"
+                        placeholder="Custom tab title"
+                        autocomplete="off"
+                    >
+
+                    <input
+                        id="custom-favicon"
+                        type="url"
+                        placeholder="Custom favicon URL"
+                        autocomplete="off"
+                    >
+
+                    <button
+                        class="settings-button"
+                        id="apply-custom"
+                        type="button"
+                    >
+                        Apply Custom Cloak
+                    </button>
+
+                    <button
+                        class="settings-button secondary"
+                        id="reset-custom"
+                        type="button"
+                    >
+                        Reset Custom Cloak
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <section class="settings-card wide">
+
+                <h2>Themes</h2>
+
+                <select
+                    class="theme-select"
+                    id="theme-options"
+                    aria-label="Theme"
+                ></select>
+
+            </section>
+
+
+            <section class="settings-card">
+
+                <h2>Display</h2>
+
+                <div class="toggle-row">
+
+                    <div class="toggle-copy">
+                        <strong>Particles</strong>
+                        <span>Show the animated particle background.</span>
+                    </div>
+
+                    <div class="toggle-buttons" data-toggle="particles">
+
+                        <button
+                            class="toggle-button"
+                            type="button"
+                            data-value="true"
+                        >
+                            enable
+                        </button>
+
+                        <button
+                            class="toggle-button"
+                            type="button"
+                            data-value="false"
+                        >
+                            disable
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="settings-card">
+
+                <h2>Mobile Screen Sizer</h2>
+
+                <div class="toggle-row">
+                    <div class="toggle-buttons" data-toggle="mobileSizing">
+
+                        <button
+                            class="toggle-button"
+                            type="button"
+                            data-value="true"
+                        >
+                            enable
+                        </button>
+
+                        <button
+                            class="toggle-button"
+                            type="button"
+                            data-value="false"
+                        >
+                            disable
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="settings-card">
+
+                <h2>Games</h2>
+
+                <div class="toggle-row">
+
+                    <div class="toggle-copy">
+                        <strong>Games Sorted A–Z</strong>
+                        <span>Sort supported game lists alphabetically.</span>
+                    </div>
+
+                    <div class="toggle-buttons" data-toggle="sortedGames">
+
+                        <button
+                            class="toggle-button"
+                            type="button"
+                            data-value="true"
+                        >
+                            enable
+                        </button>
+
+                        <button
+                            class="toggle-button"
+                            type="button"
+                            data-value="false"
+                        >
+                            disable
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="settings-card">
+
+                <h2>Anti Deledao</h2>
+
+                <div class="toggle-row">
+
+                    <div class="toggle-copy">
+                        <strong>Anti Deledao</strong>
+                        <span>Enable the game overlay.</span>
+                    </div>
+
+                    <div class="toggle-buttons" data-toggle="antiDeledao">
+
+                        <button
+                            class="toggle-button"
+                            type="button"
+                            data-value="true"
+                        >
+                            enable
+                        </button>
+
+                        <button
+                            class="toggle-button"
+                            type="button"
+                            data-value="false"
+                        >
+                            disable
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="settings-card">
+
+                <h2>Debug</h2>
+
+                <button
+                    class="settings-button"
+                    id="debug-button"
+                    type="button"
+                >
+                    Enter Debug Mode
+                </button>
+
+                <pre
+                    class="debug-output"
+                    id="debug-output"
+                ></pre>
+
+            </section>
+
+
+            <section class="settings-card">
+
+                <h2>About:blank Cloaker</h2>
+
+                <button
+                    class="settings-button"
+                    id="about-blank-button"
+                    type="button"
+                >
+                    Open About:blank
+                </button>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <img
+        id="cornerimage"
+        src="/stuff/teto/cornerimage.png"
+        alt=""
+    >
+
+
+    <footer id="footer">
+
+        <span id="online">
+            online users: 1
+        </span>
+
+        <div class="footer-right">
+
+            <button
+                type="button"
+                onclick="location.href='settings.html'"
+                title="settings"
+            >
+                <img src="/stuff/icons/settings.png" alt="settings">
+            </button>
+
+            <button
+                type="button"
+                onclick="location.href='something.html'"
+                title="profile"
+            >
+                <img src="/stuff/icons/user.png" alt="profile">
+            </button>
+
+        </div>
+
+    </footer>
+
+
+    <script src="/stuff/js/particles.js"></script>
+    <script src="/stuff/js/site-particles.js"></script>
+    <script src="loading.js"></script>
+
+    <script>
+        const originalTitle = document.title;
+
+        const originalFavicon =
+            document.querySelector('link[rel="icon"]')?.href ||
+            "/stuff/logo.png";
+
+        const storageKey = "nexite-settings";
+
+        const defaultSettings = {
+            cloak: "",
+            customTitle: "",
+            customFavicon: "",
+            theme: "default",
+            particles: true,
+            mobileSizing: false,
+            sortedGames: false,
+            antiDeledao: false,
+            cursorUrl: "",
+            pointerUrl: ""
+        };
+
+        const settings = {
+            ...defaultSettings,
+            ...loadSettings()
+        };
+
+
+        const cloakPresets = {
+
+            "Google": [
+                "Google",
+                "https://www.google.com/favicon.ico"
+            ],
+
+            "Google Drive": [
+                "Google Drive",
+                "https://ssl.gstatic.com/docs/drive/images/drive_2022q4_32dp.png"
+            ],
+
+            "Google Classroom": [
+                "Google Classroom",
+                "https://ssl.gstatic.com/classroom/favicon.png"
+            ],
+
+            "Fake Google Search": [
+                "Google Search",
+                "https://www.google.com/favicon.ico"
+            ],
+
+            "Gmail": [
+                "Gmail",
+                "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico"
+            ],
+
+            "Word": [
+                "Microsoft Word",
+                "https://res.cdn.office.net/assets/mail/file-icon/word_16x1.svg"
+            ],
+
+            "PowerPoint": [
+                "Microsoft PowerPoint",
+                "https://res.cdn.office.net/assets/mail/file-icon/powerpoint_16x1.svg"
+            ],
+
+            "YouTube": [
+                "YouTube",
+                "https://www.youtube.com/s/desktop/7d4e1d0a/img/favicon_32x32.png"
+            ],
+
+            "Google Calendar": [
+                "Google Calendar",
+                "https://calendar.google.com/googlecalendar/images/favicons_2020q4/calendar_31.ico"
+            ],
+
+            "Google Meet": [
+                "Google Meet",
+                "https://meet.google.com/favicon.ico"
+            ],
+
+            "Canvas": [
+                "Canvas",
+                "https://du11hjcvx0uqb.cloudfront.net/dist/images/favicon-e10e7d7f.ico"
+            ],
+
+            "Zoom": [
+                "Zoom",
+                "https://st1.zoom.us/zoom.ico"
+            ],
+
+            "Khan Academy": [
+                "Khan Academy",
+                "https://www.khanacademy.org/favicon.ico"
+            ]
+
+        };
+
+
+        const themes = {
+
+            default: [
+                "Default",
+                "#ff4545",
+                "#270f0f",
+                "#be3b32"
+            ],
+
+            baka: [
+                "The 3rd Baka",
+                "#f5c542",
+                "#19130a",
+                "#f5c542"
+            ],
+
+            miku: [
+                "Miku Beam",
+                "#54e3c2",
+                "#071b1c",
+                "#54e3c2"
+            ],
+
+            meximath: [
+                "MexiMath",
+                "#f5a524",
+                "#211307",
+                "#3b82f6"
+            ],
+
+            truffled: [
+                "Truffled",
+                "#c48a61",
+                "#1d100b",
+                "#9ca3af"
+            ],
+
+            purple: [
+                "Purple Twilight",
+                "#b084ff",
+                "#150d2b",
+                "#b084ff"
+            ],
+
+            sakura: [
+                "Sakura",
+                "#ff9fc7",
+                "#260e1c",
+                "#ff9fc7"
+            ],
+
+            firey: [
+                "Firey Frenzy",
+                "#ff6b21",
+                "#260b05",
+                "#ff6b21"
+            ],
+
+            evil: [
+                "EVIL 😈",
+                "#b8ff3d",
+                "#0b1205",
+                "#8f2f2f"
+            ]
+
+        };
+
+
+        function loadSettings() {
+
+            try {
+                return JSON.parse(
+                    localStorage.getItem(storageKey) || "{}"
+                );
+            }
+
+            catch {
+                return {};
+            }
+
+        }
+
+
+        function saveSettings() {
+
+            localStorage.setItem(
+                storageKey,
+                JSON.stringify(settings)
+            );
+
+        }
+
+
+        function setFavicon(url) {
+
+            let favicon =
+                document.querySelector('link[rel="icon"]');
+
+            if (!favicon) {
+
+                favicon = document.createElement("link");
+
+                favicon.rel = "icon";
+
+                document.head.append(favicon);
+
+            }
+
+            favicon.href = url || originalFavicon;
+
+        }
+
+
+        function applyCloak(title, favicon) {
+
+            document.title =
+                title || originalTitle;
+
+            setFavicon(
+                favicon || originalFavicon
+            );
+
+        }
+
+
+        function applySettingsCursors() {
+
+            let style = document.getElementById("settings-cursor-styles");
+
+            if (!style) {
+                style = document.createElement("style");
+                style.id = "settings-cursor-styles";
+                document.head.append(style);
+            }
+
+            style.textContent = `
+                *, *::before, *::after { cursor: none !important; }
+                #nexite-cursor-dot {
+                    position: fixed;
+                    top: -100px;
+                    left: -100px;
+                    z-index: 2147483647;
+                    width: 8px;
+                    height: 8px;
+                    pointer-events: none;
+                    border-radius: 50%;
+                    background: #fff;
+                    box-shadow: 0 0 8px rgba(255, 255, 255, 0.75);
+                    transform: translate(-50%, -50%);
+                }
+            `;
+        }
+
+
+        function renderCloaks() {
+
+            const root =
+                document.getElementById("cloak-presets");
+
+            Object.keys(cloakPresets).forEach(name => {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = name;
+                option.textContent = name;
+
+                root.append(option);
+
+            });
+
+            root.value =
+                cloakPresets[settings.cloak]
+                    ? settings.cloak
+                    : "";
+
+            root.addEventListener("change", () => {
+
+                settings.cloak = root.value;
+
+                document.getElementById(
+                    "cloak-status"
+                ).textContent =
+                    root.value
+                        ? `${root.value} selected.`
+                        : "No cloak selected.";
+
+                saveSettings();
+
+            });
+
+        }
+
+
+        function renderThemes() {
+
+            const root =
+                document.getElementById("theme-options");
+
+            Object.entries(themes).forEach(
+                ([key, theme]) => {
+
+                    const option =
+                        document.createElement("option");
+
+                    option.value = key;
+                    option.textContent = theme[0];
+
+                    root.append(option);
+
+                }
+            );
+
+            root.value = settings.theme;
+
+            root.addEventListener(
+                "change",
+                () => applyTheme(root.value)
+            );
+
+        }
+
+
+        function applyTheme(key) {
+
+            const theme =
+                themes[key] || themes.default;
+
+            settings.theme =
+                key in themes
+                    ? key
+                    : "default";
+
+            if (typeof window.nexiteLoadTheme === "function") {
+                window.nexiteLoadTheme(settings.theme);
+            }
+
+            document.documentElement.style.setProperty(
+                "--settings-accent",
+                theme[1]
+            );
+
+            document.documentElement.style.setProperty(
+                "--settings-accent-dark",
+                theme[2]
+            );
+
+            document.documentElement.style.setProperty(
+                "--settings-border",
+                theme[3]
+            );
+
+            document.documentElement.style.setProperty(
+                "--settings-button",
+                theme[2]
+            );
+
+            document.documentElement.style.setProperty(
+                "--settings-button-hover",
+                theme[1]
+            );
+
+            applySettingsCursors();
+
+            document.body.dataset.theme =
+                settings.theme;
+
+            const themeSelect =
+                document.getElementById(
+                    "theme-options"
+                );
+
+            if (themeSelect) {
+                themeSelect.value =
+                    settings.theme;
+            }
+
+            saveSettings();
+
+        }
+
+
+        function setToggle(key) {
+
+            const group =
+                document.querySelector(
+                    `[data-toggle="${key}"]`
+                );
+
+            const buttons = [
+                ...group.querySelectorAll(
+                    ".toggle-button"
+                )
+            ];
+
+            const update = value => {
+
+                settings[key] = value;
+
+                buttons.forEach(button => {
+
+                    button.classList.toggle(
+                        "active",
+                        button.dataset.value ===
+                        String(value)
+                    );
+
+                });
+
+                document.body.classList.toggle(
+                    "mobile-sizing",
+                    settings.mobileSizing
+                );
+
+                document.getElementById(
+                    "particles-js"
+                ).hidden =
+                    !settings.particles;
+
+                saveSettings();
+
+            };
+
+            buttons.forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => update(
+                        button.dataset.value === "true"
+                    )
+                );
+
+            });
+
+            update(Boolean(settings[key]));
+
+        }
+
+
+        function restoreToggleState() {
+
+            document
+                .querySelectorAll("[data-toggle]")
+                .forEach(group => {
+
+                    const key =
+                        group.dataset.toggle;
+
+                    group
+                        .querySelectorAll(
+                            ".toggle-button"
+                        )
+                        .forEach(button => {
+
+                            button.classList.toggle(
+                                "active",
+                                button.dataset.value ===
+                                String(
+                                    Boolean(
+                                        settings[key]
+                                    )
+                                )
+                            );
+
+                        });
+
+                });
+
+        }
+
+
+        function applySavedCloak() {
+
+            if (
+                settings.cloak === "custom" &&
+                settings.customTitle
+            ) {
+
+                applyCloak(
+                    settings.customTitle,
+                    settings.customFavicon
+                );
+
+                return;
+
+            }
+
+            if (cloakPresets[settings.cloak]) {
+
+                const cloak =
+                    cloakPresets[settings.cloak];
+
+                applyCloak(
+                    cloak[0],
+                    cloak[1]
+                );
+
+            }
+
+        }
+
+
+        renderCloaks();
+        renderThemes();
+
+        applyTheme(settings.theme);
+
+        document.getElementById(
+            "custom-title"
+        ).value =
+            settings.customTitle;
+
+        document.getElementById(
+            "custom-favicon"
+        ).value =
+            settings.customFavicon;
+
+        applySavedCloak();
+
+        setToggle("particles");
+        setToggle("mobileSizing");
+        setToggle("sortedGames");
+        setToggle("antiDeledao");
+
+        restoreToggleState();
+
+        document.body.classList.toggle(
+            "mobile-sizing",
+            settings.mobileSizing
+        );
+
+        document.getElementById(
+            "particles-js"
+        ).hidden =
+            !settings.particles;
+
+
+        document.getElementById(
+            "set-cloak"
+        ).onclick = () => {
+
+            if (
+                settings.cloak === "custom" &&
+                settings.customTitle
+            ) {
+
+                applyCloak(
+                    settings.customTitle,
+                    settings.customFavicon
+                );
+
+                document.getElementById(
+                    "cloak-status"
+                ).textContent =
+                    "Custom cloak applied.";
+
+                return;
+
+            }
+
+            if (!cloakPresets[settings.cloak])
+                return;
+
+            const cloak =
+                cloakPresets[settings.cloak];
+
+            applyCloak(
+                cloak[0],
+                cloak[1]
+            );
+
+            document.getElementById(
+                "cloak-status"
+            ).textContent =
+                `${settings.cloak} applied.`;
+
+        };
+
+
+        document.getElementById(
+            "reset-cloak"
+        ).onclick = () => {
+
+            settings.cloak = "";
+
+            saveSettings();
+
+            applyCloak(
+                originalTitle,
+                originalFavicon
+            );
+
+            document.getElementById(
+                "cloak-presets"
+            ).value = "";
+
+            document.getElementById(
+                "cloak-status"
+            ).textContent =
+                "Cloak reset.";
+
+        };
+
+
+        document.getElementById(
+            "apply-custom"
+        ).onclick = () => {
+
+            settings.customTitle =
+                document
+                    .getElementById("custom-title")
+                    .value
+                    .trim();
+
+            settings.customFavicon =
+                document
+                    .getElementById("custom-favicon")
+                    .value
+                    .trim();
+
+            settings.cloak = "custom";
+
+            saveSettings();
+
+            applyCloak(
+                settings.customTitle,
+                settings.customFavicon
+            );
+
+            document.getElementById(
+                "cloak-status"
+            ).textContent =
+                "Custom cloak applied.";
+
+        };
+
+
+        document.getElementById(
+            "reset-custom"
+        ).onclick = () => {
+
+            settings.customTitle = "";
+            settings.customFavicon = "";
+            settings.cloak = "";
+
+            saveSettings();
+
+            document.getElementById(
+                "custom-title"
+            ).value = "";
+
+            document.getElementById(
+                "custom-favicon"
+            ).value = "";
+
+            applyCloak(
+                originalTitle,
+                originalFavicon
+            );
+
+            document.getElementById(
+                "cloak-status"
+            ).textContent =
+                "Custom cloak reset.";
+
+        };
+
+
+        document.getElementById(
+            "debug-button"
+        ).onclick = event => {
+
+            const output =
+                document.getElementById(
+                    "debug-output"
+                );
+
+            output.classList.toggle(
+                "visible"
+            );
+
+            event.currentTarget.textContent =
+                output.classList.contains("visible")
+                    ? "Exit Debug Mode"
+                    : "Enter Debug Mode";
+
+            output.textContent =
+                JSON.stringify(
+                    {
+                        page: location.href,
+                        viewport:
+                            `${innerWidth}x${innerHeight}`,
+                        userAgent:
+                            navigator.userAgent,
+                        settings,
+                        localStorageKeys:
+                            Object.keys(localStorage)
+                    },
+                    null,
+                    2
+                );
+
+        };
+
+
+        document.getElementById(
+            "about-blank-button"
+        ).onclick = () => {
+
+            const cloakedWindow =
+                window.open(
+                    "about:blank",
+                    "_blank"
+                );
+
+            if (!cloakedWindow)
+                return;
+
+            const cloakedDocument =
+                cloakedWindow.document;
+
+            cloakedDocument.title =
+                document.title;
+
+            cloakedDocument.documentElement.style.cssText =
+                "margin:0;overflow:hidden";
+
+            const frame =
+                cloakedDocument.createElement(
+                    "iframe"
+                );
+
+            frame.src = location.href;
+
+            frame.style.cssText =
+                "width:100vw;height:100vh;border:0";
+
+            cloakedDocument.body.style.cssText =
+                "margin:0;overflow:hidden";
+
+            cloakedDocument.body.append(frame);
+
+        };
+    </script>
+
+    <script src="moresettings.js"></script>
+</body>
+</html>

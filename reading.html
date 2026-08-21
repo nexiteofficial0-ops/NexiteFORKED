@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nexite | Apps</title>
+	<link rel="icon" type="image/svg+xml" href="/stuff/favicon.svg">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+	<div id="background"></div>
+	<div id="lowtaperfade"></div>
+	<div id="particles-js"></div>
+
+	<div id="loading-screen">
+		<div class="spinner">
+			<div style="--rotation:90"></div>
+			<div style="--rotation:180"></div>
+			<div style="--rotation:270"></div>
+			<div style="--rotation:360"></div>
+		</div>
+		<h1 id="loading-title">loading the loading...</h1>
+		<p id="messageforyou">Getting everything ready...</p>
+		<p id="elementcounter">0/0 loaded...</p>
+		<button id="skiploading" type="button" onclick="skipLoading()">Skip</button>
+		<div id="loadingbar"></div>
+	</div>
+
+	<header id="header">
+		<img
+			src="/stuff/logo.png"
+			class="top-logo"
+			style="width: 76px; height: 76px; object-fit: contain;"
+			alt="Home"
+			onclick="location.href='/'"
+		>
+
+		<div class="header-right">
+			<button class="header-button" type="button" onclick="location.href='math.html'">
+				<img src="/stuff/icons/calc.svg" alt="Math">
+			</button>
+			<button class="header-button" type="button" onclick="location.href='/Ultraviolet-App-main/index.html'">
+				<img src="/stuff/icons/web.png" alt="Web">
+			</button>
+			<button class="header-button" type="button" onclick="location.href='something.html'">
+				<img src="/stuff/icons/handshake-solid.svg" alt="Partners">
+			</button>
+			<button class="header-button" type="button" onclick="location.href='extras.html'">
+				<img src="/stuff/icons/plus-solid.svg" alt="Extras">
+			</button>
+		</div>
+	</header>
+
+	<main id="roddyricchboxselect">
+		<h1 id="title">apps</h1>
+		<input id="app-search" type="text" placeholder="find what you want..." autocomplete="off">
+		<p id="app-no-results" hidden>you have reached the end...</p>
+
+		<div id="apps-grid">
+			<a class="app-card" href="something.html"><img src="/stuff/nowggfun.png" alt="now gg"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/discord.png" alt="discord"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/youtube.png" alt="youtube"></a>
+			<a class="app-card" href="/stuff/selfhosted/movies/index.html"><img src="/stuff/movies.jpg" alt="movies"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 05"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 06"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 07"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 08"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 09"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 10"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 11"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 12"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 13"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 14"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 15"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 16"></a>
+			<a class="app-card" href="something.html"><img src="/stuff/logo.png" alt="app 17"></a>
+		</div>
+	</main>
+
+	<img id="cornerimage" src="/stuff/teto/cornerimage.png" alt="">
+
+	<script src="/stuff/js/particles.js"></script>
+	<script src="/stuff/js/site-particles.js"></script>
+	<script src="loading.js"></script>
+	<script src="moresettings.js"></script>
+	<script>
+		const appSearch = document.getElementById("app-search");
+		const appCards = [...document.querySelectorAll(".app-card")];
+		const appNoResults = document.getElementById("app-no-results");
+
+		function filterApps() {
+			const query = appSearch.value.trim().toLowerCase();
+			let visibleApps = 0;
+
+			appCards.forEach(card => {
+				const matches = card.querySelector("img").alt.toLowerCase().includes(query);
+				card.hidden = !matches;
+				if (matches) {
+					visibleApps += 1;
+				}
+			});
+
+			appNoResults.hidden = visibleApps !== 0;
+		}
+
+		appSearch.addEventListener("input", filterApps);
+		appSearch.addEventListener("keydown", event => {
+			if (event.key === "Escape") {
+				appSearch.value = "";
+				filterApps();
+				appSearch.blur();
+			}
+		});
+	</script>
+
+</body>
+</html>

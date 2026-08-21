@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Study.com | Math</title>
+
+    <link rel="icon" type="image/svg+xml" href="/stuff/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+
+    <body>
+
+        <div id="particles-js"></div>
+
+        <div id="loading-screen">
+            <div class="spinner">
+                <div style="--rotation:90"></div>
+                <div style="--rotation:180"></div>
+                <div style="--rotation:270"></div>
+                <div style="--rotation:360"></div>
+            </div>
+
+            <h1 id="loading-title">
+                Loading your education
+            </h1>
+
+            <p id="messageforyou">
+                Getting everything ready...
+            </p>
+
+            <p id="elementcounter">
+                0/0 loaded...
+            </p>
+
+            <button
+                id="skiploading"
+                type="button"
+                onclick="skipLoading()"
+            >
+                Skip
+            </button>
+
+            <div id="loadingbar"></div>
+        </div>
+
+    <div id="header">
+
+        <img
+            class="headericons"
+            src="/stuff/logo.png"
+            alt="Home"
+            style="transform:scale(1.3)"
+            onclick="window.location.href='/'"
+        >
+
+        <div class="right">
+
+            <img
+                class="headericons"
+                src="/stuff/icons/calc.svg"
+                alt="Math"
+                onclick="window.location.href='/math/'"
+            >
+
+            <img
+                class="headericons"
+                src="/stuff/icons/web.png"
+                alt="Reading"
+                onclick="window.location.href='/Ultraviolet-App-main/index.html'"
+            >
+
+            <img
+                class="headericons"
+                src="/stuff/icons/handshake-solid.svg"
+                alt="Partners"
+                onclick="window.location.href='/partners.html'"
+            >
+
+            <img
+                class="headericons"
+                src="/stuff/icons/plus-solid.svg"
+                alt="Extras"
+                onclick="window.location.href='/extras.html'"
+            >
+
+        </div>
+
+    </div>
+
+
+
+
+    <div id="roddyricchboxselect">
+
+        <br>
+        <br>
+
+        <h1 id="title">games</h1>
+
+        <h2 id="resourcecount"></h2>
+
+        <input
+            id="teachertouchbar"
+            placeholder="find what you want..."
+            autocomplete="off"
+        >
+
+        <br>
+        <br>
+
+
+        <div id="mathworksheets">
+
+                <img class="gamebtns" src="/stuff/games/geodash.png" alt="geometry dash" onclick="window.location.href='/stuff/selfhosted/gdlite/';">
+                <img class="gamebtns" src="/stuff/games/getaway-shootout.png" alt="getaway shootout" onclick="window.location.href='/stuff/selfhosted/getaway-shootout/index.html';">
+                <img class="gamebtns" src="/stuff/games/rooftop-snipers.jpg" alt="rooftop snipers" onclick="window.location.href='/stuff/selfhosted/rooftop-sniper/index.html';">
+                <img class="gamebtns" src="/stuff/games/rooftop-snipers2.jpg" alt="rooftop snipers 2" onclick="window.location.href='/stuff/selfhosted/rooftop-snipers-2/';">
+                <img class="gamebtns" src="/stuff/games/tubejumpers.png" alt="tube jumpers" onclick="window.location.href='/stuff/selfhosted/tube-jumpers';">
+                <img class="gamebtns" src="/stuff/games/fnaf1.png" alt="five nights at freddys" onclick="window.location.href='/stuff/selfhosted/fnaf1';">
+                <img class="gamebtns" src="/stuff/games/fnaf2.png" alt="five nights at freddys 2" onclick="window.location.href='/stuff/selfhosted/fnaf2';">
+                <img class="gamebtns" src="/stuff/games/fnaf3.png" alt="five nights at freddys 3" onclick="window.location.href='/stuff/selfhosted/fnaf3';">
+                <img class="gamebtns" src="/stuff/games/fnaf4.png" alt="five nights at freddys 4" onclick="window.location.href='/stuff/selfhosted/fnaf4';">
+                <img class="gamebtns" src="/stuff/games/fnafsl.jpg" alt="five nights at freddys sister location" onclick="window.location.href='/stuff/selfhosted/sisterlocation';">
+                <img class="gamebtns" src="/stuff/games/pizzeriasimulator.png" alt="pizzeria simulator" onclick="window.location.href='/stuff/selfhosted/pizzeriasimulator';">
+                <img class="gamebtns" src="/stuff/games/fnafworld.png" alt="fnaf world" onclick="window.location.href='/stuff/selfhosted/fnafworld';">
+                <img class="gamebtns" src="/stuff/games/ucn.jpg" alt="ultimate custom night" onclick="window.location.href='/stuff/selfhosted/ucn';">
+                <img class="gamebtns" src="/stuff/games/minecraft.jpg" alt="minecraft" onclick="window.location.href='/stuff/selfhosted/minecraft/';">
+                <img class="gamebtns" src="/stuff/games/subway.png" alt="subway surfers" onclick="window.location.href='/stuff/selfhosted/subway-surfers/';">
+                <img class="gamebtns" src="/stuff/games/bloodmoney.png" alt="bloodmoney" onclick="window.location.href='/stuff/selfhosted/bloodmoney/';">
+                <img class="gamebtns" src="/stuff/games/hep.png" alt="human expenditure program" onclick="window.location.href='/stuff/selfhosted/hep/index.html';">
+                <img class="gamebtns" src="/stuff/games/crossyroad.jpeg" alt="crossy road" onclick="window.location.href='/stuff/selfhosted/crossyroad';">
+                <img class="gamebtns" src="/stuff/games/slowroads.png" alt="slowroads" onclick="window.location.href='/stuff/selfhosted/slowroads';">
+                <img class="gamebtns" src="/stuff/games/happywheels.jpg" alt="happy wheels" onclick="window.location.href='/stuff/selfhosted/happywheels';">
+                <img class="gamebtns" src="/stuff/games/polytrack.jpg" alt="polytrack" onclick="window.location.href='/stuff/selfhosted/polytrack';">
+                <img class="gamebtns" src="/stuff/games/slope.jpg" alt="slope" onclick="window.location.href='/stuff/selfhosted/slope';">
+                <img class="gamebtns" src="/stuff/games/aswc.png" alt="a small world cup" onclick="window.location.href='/stuff/selfhosted/asmallworldcup';">
+                <img class="gamebtns" src="/stuff/games/bitlife.jpg" alt="bitlife" onclick="window.location.href='/stuff/selfhosted/bitlife';">
+                <img class="gamebtns" src="/stuff/games/monkey-mart.jpg" alt="monkey mart" onclick="window.location.href='/stuff/selfhosted/monkey-mart';">
+                <img class="gamebtns" src="/stuff/games/drive-mad.png" alt="drive mad" onclick="window.location.href='/stuff/selfhosted/drive-mad/';">
+                <img class="gamebtns" src="/stuff/games/monster-tracks.png" alt="monster tracks" onclick="window.location.href='/stuff/selfhosted/monster-tracks';">
+                <img class="gamebtns" src="/stuff/games/adofai.png" alt="a dance of fire and ice" onclick="window.location.href='/stuff/selfhosted/a-dance-of-fire-and-ice';">
+                <img class="gamebtns" src="/stuff/games/cannonbasketball4.jpg" alt="cannon basketball 4" onclick="window.location.href='/stuff/selfhosted/cannon-basketball-4';">
+                <img class="gamebtns" src="/stuff/games/dragondeeznuts.jpg" alt="dragon vs icy bricks" onclick="window.location.href='/stuff/selfhosted/dragon-vs-bricks';">
+                <img class="gamebtns" src="/stuff/games/dodge.png" alt="dodge" onclick="window.location.href='/stuff/selfhosted/dodge';">
+                <img class="gamebtns" src="/stuff/games/baldi.png" alt="baldis basics in education and learning" onclick="window.location.href='/stuff/selfhosted/baldis-basics';">
+                <img class="gamebtns" src="/stuff/games/100ng.jpg" alt="100 player pong" onclick="window.location.href='/stuff/selfhosted/100ng';">
+                <img class="gamebtns" src="/stuff/games/burritobison.jpg" alt="burrito bison" onclick="window.location.href='/stuff/selfhosted/burrito-bison';">
+                <img class="gamebtns" src="/stuff/games/rhythmhell.png" alt="rhythm hell" onclick="window.location.href='/stuff/selfhosted/rhythm-hell';">
+                <img class="gamebtns" src="/stuff/games/baconmaydie.jpg" alt="bacon may die" onclick="window.location.href='/stuff/selfhosted/bacon-may-die';">
+                <img class="gamebtns" src="/stuff/games/venge.jpg" alt="venge" onclick="window.location.href='/algebra.html?url=https://venge.io';">
+                <img class="gamebtns" src="/stuff/games/soccerrandom.jpg" alt="soccer random" onclick="window.location.href='/stuff/selfhosted/soccer-random';">
+                <img class="gamebtns" src="/stuff/games/basketrandom.png" alt="basket random" onclick="window.location.href='/stuff/selfhosted/basket-random';">
+                <img class="gamebtns" src="/stuff/games/boxingrandom.png" alt="boxing random" onclick="window.location.href='/stuff/selfhosted/boxing-random';">
+                <img class="gamebtns" src="/stuff/games/volleyrandom.png" alt="volley random" onclick="window.location.href='/stuff/selfhosted/volley-random';">
+                <img class="gamebtns" src="/stuff/games/bouncybasketball.png" alt="bouncy basketball" onclick="window.location.href='/stuff/selfhosted/bouncy-basketball';">
+                <img class="gamebtns" src="/stuff/games/adventuredrivers.png" alt="adventure drivers" onclick="window.location.href='/stuff/selfhosted/adventure-drivers';">
+                <img class="gamebtns" src="/stuff/games/cookieclicker.png" alt="cookie clicker" onclick="window.location.href='/stuff/selfhosted/cookie-clicker/index.html';">
+                <img class="gamebtns" src="/stuff/games/stickmanhook.jpg" alt="stickman hook" onclick="window.location.href='/stuff/selfhosted/stickman-hook/';">
+                <img class="gamebtns" src="/stuff/games/ovo.png" alt="ovo" onclick="window.location.href='/stuff/selfhosted/ovo/';">
+                <img class="gamebtns" src="/stuff/games/doom.jpg" alt="doom" onclick="window.location.href='/stuff/selfhosted/doom/';">
+                <img class="gamebtns" src="/stuff/games/totm.png" alt="tomb of the mask" onclick="window.location.href='/stuff/selfhosted/tomb-of-the-mask/';">
+                <img class="gamebtns" src="/stuff/games/btts.png" alt="big tower tiny square" onclick="window.location.href='/stuff/selfhosted/btts/';">
+                <img class="gamebtns" src="/stuff/games/halflife.jpg" alt="half-life" onclick="window.location.href='/stuff/selfhosted/half-life/';">
+                <img class="gamebtns" src="/stuff/games/superhot.png" alt="superhot" onclick="window.location.href='/stuff/selfhosted/super-hot/';">
+                <img class="gamebtns" src="/stuff/games/retrohellicopter.png" alt="retro hellicopter" onclick="window.location.href='/algebra.html?url=https://www.coolmathgames.com/0-retro-helicopter/play';">
+                <img class="gamebtns" src="/stuff/games/hexgl.png" alt="hexgl" onclick="window.location.href='/stuff/selfhosted/hexgl/';">
+                <img class="gamebtns" src="/stuff/games/buckshot.jpg" alt="buckshot roulette" onclick="window.location.href='/stuff/selfhosted/buckshot-roulette/';">
+                <img class="gamebtns" src="/stuff/games/skribbl.png" alt="skribbl.io" onclick="window.location.href='/algebra.html?url=https://skribbl.io';">
+                <img class="gamebtns" src="/stuff/games/nzp.png" alt="nazi zombies portable" onclick="window.location.href='/stuff/selfhosted/nzp/';">
+                <img class="gamebtns" src="/stuff/games/superfowlst.png" alt="super fowlst" onclick="window.location.href='/stuff/selfhosted/super-foulist/';">
+                <img class="gamebtns" src="/stuff/games/basket-bros.png" alt="basket bros" onclick="window.location.href='/stuff/selfhosted/basketbros-io/';">
+                <img class="gamebtns" src="/stuff/games/quake.jpg" alt="quake" onclick="window.location.href='/stuff/selfhosted/quake/';">
+                <img class="gamebtns" src="/stuff/games/run3.png" alt="run 3" onclick="window.location.href='/stuff/selfhosted/run3/';">
+                <img class="gamebtns" src="/stuff/games/btr2.png" alt="bob the robber 2" onclick="window.location.href='/stuff/selfhosted/bobtherobber2/index.html';">
+                <img class="gamebtns" src="/stuff/games/evio.png" alt="ev.io" onclick="window.location.href='/algebra.html?url=https://ev.io';">
+                <img class="gamebtns" src="/stuff/games/motox3m.jpg" alt="moto x3m" onclick="window.location.href='/stuff/selfhosted/motox3m/index.html';">
+                <img class="gamebtns" src="/stuff/games/flappybird.png" alt="flappy bird" onclick="window.location.href='/stuff/selfhosted/flappybird/';">
+                <img class="gamebtns" src="/stuff/games/tanuki.jpg" alt="tanuki sunset" onclick="window.location.href='/stuff/selfhosted/tanuki-sunset/';">
+                <img class="gamebtns" src="/stuff/games/basketball-stars.png" alt="basketball stars" onclick="window.location.href='/stuff/selfhosted/basketball-stars/';">
+                <img class="gamebtns" src="/stuff/games/tag.png" alt="tag" onclick="window.location.href='/algebra.html?url=https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://118473026-235917736205837253.preview.editmysite.com/uploads/b/146211889-618141766941606391/files/tag.xml&amp;container=ig';">
+                <img class="gamebtns" src="/stuff/games/zombs.png" alt="zombs royale" onclick="window.location.href='/algebra.html?url=https://fortnite.io';">
+                <img class="gamebtns" src="/stuff/games/uno.png" alt="uno" onclick="window.location.href='/algebra.html?url=https://buddyboardgames.com/uno';">
+                <img class="gamebtns" src="/stuff/games/endlesstruck.png" alt="endless truck" onclick="window.location.href='/stuff/selfhosted/endless-truck/';">
+                <img class="gamebtns" src="/stuff/games/retrobowl.png" alt="retro bowl" onclick="window.location.href='/stuff/selfhosted/retro-bowl/';">
+                <img class="gamebtns" src="/stuff/games/blockblast.png" alt="block blast" onclick="window.location.href='/stuff/selfhosted/blockblast/';">
+                <img class="gamebtns" src="/stuff/games/driftboss.png" alt="drift boss" onclick="window.location.href='/stuff/selfhosted/drift-boss/';">
+                <img class="gamebtns" src="/stuff/games/pizzatower.jpg" alt="pizza tower" onclick="window.location.href='/stuff/selfhosted/pizzatower/';">
+                <img class="gamebtns" src="/stuff/games/fnaw.jpg" alt="five nights at winstons" onclick="window.location.href='/stuff/selfhosted/fnaw/';">
+                <img class="gamebtns" src="/stuff/games/wbwwb.png" alt="we become what we behold" onclick="window.location.href='/stuff/selfhosted/wbwwb/';">
+                <img class="gamebtns" src="/stuff/games/baf.png" alt="burger and frights" onclick="window.location.href='/stuff/selfhosted/baf/index.html';">
+                <img class="gamebtns" src="/stuff/games/10mtd.png" alt="10 minutes till dawn" onclick="window.location.href='/stuff/selfhosted/10-minutes-till-dawn/index.html';">
+                <img class="gamebtns" src="/stuff/games/slither.jpg" alt="slither.io" onclick="window.location.href='/algebra.html?url=https://slither.io';">
+                <img class="gamebtns" src="/stuff/games/ragdollarchers.jpg" alt="ragdoll archers" onclick="window.location.href='/stuff/selfhosted/ragdoll-archers/';">
+                <img class="gamebtns" src="/stuff/games/repo.png" alt="r.e.p.o" onclick="window.location.href='/stuff/selfhosted/repo/';">
+                <img class="gamebtns" src="/stuff/games/ppg.png" alt="people playground" onclick="window.location.href='/stuff/selfhosted/ppgbog/';">
+                <img class="gamebtns" src="/stuff/games/batim.png" alt="bendy and the ink machine" onclick="window.location.href='/stuff/selfhosted/batim/';">
+                <img class="gamebtns" src="/stuff/games/fused240.jpg" alt="fused 240" onclick="window.location.href='/stuff/selfhosted/fused240/';">
+                <img class="gamebtns" src="/stuff/games/badgame.png" alt="bad game" onclick="window.location.href='/stuff/selfhosted/badgame/';">
+                <img class="gamebtns" src="/stuff/games/karlson.png" alt="karlson 2d" onclick="window.location.href='/stuff/selfhosted/karlson2d/';">
+                <img class="gamebtns" src="/stuff/games/rerun.jpg" alt="re:run" onclick="window.location.href='/stuff/selfhosted/rerun/';">
+                <img class="gamebtns" src="/stuff/games/dnttch.png" alt="do not take this cat home" onclick="window.location.href='/stuff/selfhosted/dnttch/';">
+                <img class="gamebtns" src="/stuff/games/testimonium.png" alt="testimonium" onclick="window.location.href='/stuff/selfhosted/testimonium/';">
+                <img class="gamebtns" src="/stuff/games/cuphead.png" alt="cuphead" onclick="window.location.href='/stuff/selfhosted/cuphead/index.html';">
+                <img class="gamebtns" src="https://korona.lat/images/roblox.png" alt="roblox" onclick="window.location.href='/stuff/selfhosted/roblox/index.html';">
+                <img class="gamebtns" src="/stuff/games/raft.png" alt="raft" onclick="window.location.href='/stuff/selfhosted/raft/index.html';">
+                <img class="gamebtns" src="/stuff/games/ragdoll.png" alt="ragdoll hit" onclick="window.location.href='/stuff/selfhosted/ragdoll/index.html';">
+                <img class="gamebtns" src="/stuff/games/sonicmania.jpg" alt="sonic mania" onclick="window.location.href='/stuff/selfhosted/sonicmania/index.html';">
+                <img class="gamebtns" src="/stuff/games/balatro.jpg" alt="balatro" onclick="window.location.href='/stuff/selfhosted/balatro/index.html';">
+                <img class="gamebtns" src="/stuff/games/thetag.png" alt="gorilla tag" onclick="window.location.href='/stuff/selfhosted/gtag/index.html';">
+                <img class="gamebtns" src="/stuff/games/omori.png" alt="omori" onclick="window.location.href='/stuff/selfhosted/omori/index.html';">
+                <img class="gamebtns" src="/stuff/games/terraria.png" alt="terraria" onclick="window.open('/stuff/selfhosted/terraria/index.html');">
+                <img class="gamebtns" src="/stuff/games/raldi.png" alt="raldi's crackhouse" onclick="window.location.href='/stuff/selfhosted/raldi/index.html';">
+                <img class="gamebtns" src="/stuff/games/slimerancher.png" alt="slime rancher" onclick="window.location.href='/stuff/selfhosted/slimerancher/index.html';">
+                <img class="gamebtns" src="/stuff/games/simplelootidle.png" alt="simple loot idle" onclick="window.location.href='/stuff/selfhosted/simplelootidle/index.html';">
+                <img class="gamebtns" src="/stuff/games/fnae.png" alt="five nights at epsteins" onclick="window.location.href='/stuff/selfhosted/fnae/index.html';">
+                <img class="gamebtns" src="/stuff/games/angrybirds.png" alt="angry birds" onclick="window.location.href='/stuff/selfhosted/angrybirds/index.html';">
+                <img class="gamebtns" src="/stuff/games/ddlcplus.png" alt="doki doki literature club plus" onclick="window.location.href='/stuff/selfhosted/ddlcplus/index.html';">
+                <img class="gamebtns" src="/stuff/games/nso.png" alt="needy streamer overload" onclick="window.location.href='/stuff/selfhosted/nso/index.html';">
+                <img class="gamebtns" src="/stuff/games/adgac.png" alt="a difficult game about climbing" onclick="window.location.href='/stuff/selfhosted/adgac/index.html';">
+                <img class="gamebtns" src="/stuff/games/deltatraveler.png" alt="delta traveler" onclick="window.location.href='/stuff/selfhosted/deltatraveler/index.html';">
+                <img class="gamebtns" src="/stuff/games/escape-road.png" alt="escape road" onclick="window.location.href='/stuff/selfhosted/escape-road/index.html';">
+                <img class="gamebtns" src="/stuff/games/classof09.png" alt="class of '09" onclick="window.location.href='/stuff/selfhosted/co09loader/index.html';">
+                <img class="gamebtns" src="/stuff/games/gettingoverit.png" alt="getting over it" onclick="window.location.href='/stuff/selfhosted/gettingoverit/index.html';">
+                <img class="gamebtns" src="/stuff/games/fnf.png" alt="friday night funkin" onclick="window.location.href='/stuff/selfhosted/fnf/index.html';">
+                <img class="gamebtns" src="/stuff/games/survivorio.png" alt="survivor.io" onclick="window.location.href='/stuff/selfhosted/survivorio/index.html';">
+                <img class="gamebtns" src="/stuff/games/undertale.jpg" alt="undertale" onclick="window.location.href='/stuff/selfhosted/undertale/index.html';">
+                <img class="gamebtns" src="/stuff/games/deltarune.jpg" alt="deltarune" onclick="window.location.href='/stuff/selfhosted/deltarune/index.html';">
+                <img class="gamebtns" src="/stuff/games/mcpe.png" alt="minecraft pocket edition" onclick="window.location.href='/stuff/selfhosted/mcpe/index.html';">
+                <img class="gamebtns" src="/stuff/games/lbp.png" alt="little big planet" onclick="window.open('/stuff/selfhosted/lbp/index.html');">
+                <img class="gamebtns" src="/stuff/games/oneshot.png" alt="oneshot" onclick="window.location.href='/stuff/selfhosted/oneshot/index.html';">
+                <img class="gamebtns" src="/stuff/games/bartblast.png" alt="bart blast" onclick="window.location.href='/stuff/selfhosted/bartblast/index.html';">
+                <img class="gamebtns" src="/stuff/games/drift-hunters.png" alt="drift hunters" onclick="window.location.href='/stuff/selfhosted/drift-hunters/index.html';">
+                <img class="gamebtns" src="/stuff/games/houseofhazards.png" alt="house of hazards" onclick="window.location.href='/stuff/selfhosted/houseofhazards/index.html';">
+                <img class="gamebtns" src="/stuff/games/au.jpg" alt="achievement unlocked" onclick="window.location.href='/stuff/selfhosted/achunlocked.html';">
+                <img class="gamebtns" src="/stuff/games/avalanche.png" alt="avalanche" onclick="window.location.href='/stuff/selfhosted/avalanche.html';">
+                <img class="gamebtns" src="/stuff/games/bloons.png" alt="bloons tower defense 1" onclick="window.location.href='/stuff/selfhosted/bloons-td-1.html';">
+                <img class="gamebtns" src="/stuff/games/bloons2.png" alt="bloons tower defense 2" onclick="window.location.href='/stuff/selfhosted/bloons-td-2.html';">
+                <img class="gamebtns" src="/stuff/games/diggy.png" alt="diggy" onclick="window.location.href='/stuff/selfhosted/diggy.html';">
+                <img class="gamebtns" src="/stuff/games/sfpa.jpg" alt="super fancy pants adventure" onclick="window.location.href='/stuff/selfhosted/fancy-pants-man.html';">
+                <img class="gamebtns" src="/stuff/games/gun-mayhem.png" alt="gun mayhem" onclick="window.location.href='/stuff/selfhosted/gun-mayhem.html';">
+                <img class="gamebtns" src="/stuff/games/gun-mayhem2.jpg" alt="gun mayhem 2: more mayhem" onclick="window.location.href='/stuff/selfhosted/gun-mayhem2.html';">
+                <img class="gamebtns" src="/stuff/games/learn2fly.png" alt="learn tozeri fly" onclick="window.location.href='/stuff/selfhosted/learn-to-fly.html';">
+                <img class="gamebtns" src="/stuff/games/papas.png" alt="papa's pizzeria" onclick="window.location.href='/stuff/selfhosted/pizzeria.html';">
+                <img class="gamebtns" src="/stuff/games/portal.png" alt="portal: the flash version" onclick="window.location.href='/stuff/selfhosted/portal.html';">
+                <img class="gamebtns" src="/stuff/games/alien.png" alt="alien hominid" onclick="window.location.href='/stuff/selfhosted/alien_hominid.html';">
+                <img class="gamebtns" src="/stuff/games/1on1soccer.png" alt="1 on 1 soccer" onclick="window.location.href='/stuff/selfhosted/1on1soccer.html';">
+                <img class="gamebtns" src="/stuff/games/redball4.png" alt="red ball 4" onclick="window.location.href='/stuff/selfhosted/red-ball4.html';">
+                <img class="gamebtns" src="/stuff/games/tosstheturtle.png" alt="toss the turtle" onclick="window.location.href='/stuff/selfhosted/tosstheturtle/index.html';">
+                <img class="gamebtns" src="/stuff/games/peggle.png" alt="peggle" onclick="window.location.href='/stuff/selfhosted/peggle.html';">
+                <img class="gamebtns" src="/stuff/games/gachalife.png" alt="gacha life" onclick="window.location.href='/stuff/selfhosted/gachalife.html';">
+                <img class="gamebtns" src="/stuff/games/gachaverse.png" alt="gacha verse" onclick="window.location.href='/stuff/selfhosted/gachaverse.html';">
+                <img class="gamebtns" src="/stuff/games/sm64.png" alt="super mario 64" onclick="window.location.href='/stuff/selfhosted/sm64.html';">
+                <img class="gamebtns" src="/stuff/games/banjo.jpg" alt="banjo kazooie" onclick="window.location.href='/stuff/selfhosted/banjo.html';">
+                <img class="gamebtns" src="/stuff/games/ssb.png" alt="super smash bros" onclick="window.location.href='/stuff/selfhosted/ssb.html';">
+                <img class="gamebtns" src="/stuff/games/danganronpa.png" alt="danganronpa trigger happy havoc" onclick="window.open('/stuff/selfhosted/danganronpa/index.html');">
+                <img class="gamebtns" src="/stuff/games/lozoft.jpg" alt="the legend of zelda ocarina of time" onclick="window.location.href='/stuff/selfhosted/zelda-oot.html';">
+                <img class="gamebtns" src="/stuff/games/southpark.jpg" alt="south park 64" onclick="window.location.href='/stuff/selfhosted/south.html';">
+                <img class="gamebtns" src="/stuff/games/acww.jpg" alt="animal crossing wild world" onclick="window.location.href='/stuff/selfhosted/acww.html';">
+                <img class="gamebtns" src="/stuff/games/nsmb.png" alt="new super mario bros ds" onclick="window.location.href='/stuff/selfhosted/nsmb.html';">
+                <img class="gamebtns" src="/stuff/games/ppv.png" alt="pokemon platinum version" onclick="window.location.href='/stuff/selfhosted/pokemon.html';">
+                <img class="gamebtns" src="/stuff/games/mkds.png" alt="mario kart ds" onclick="window.location.href='/stuff/selfhosted/mkds.html';">
+                <img class="gamebtns" src="/stuff/games/cookingmama.png" alt="cooking mama" onclick="window.location.href='/stuff/selfhosted/cookingmama.html';">
+                <img class="gamebtns" src="/stuff/games/cookingmama2.png" alt="cooking mama 2" onclick="window.location.href='/stuff/selfhosted/cookingmama2.html';">
+                <img class="gamebtns" src="/stuff/games/cookingmama3.png" alt="cooking mama 3" onclick="window.location.href='/stuff/selfhosted/cookingmama3.html';">
+                <img class="gamebtns" src="/stuff/games/tomodachi.jpg" alt="tomodachi collection" onclick="window.location.href='/stuff/selfhosted/tomodachi.html';">
+                <img class="gamebtns" src="/stuff/games/smbd.jpg" alt="super mario bros deluxe" onclick="window.location.href='/stuff/selfhosted/smbd.html';">
+                <img class="gamebtns" src="/stuff/games/lozladx.png" alt="the legend of zelda links awakening dx" onclick="window.location.href='/stuff/selfhosted/links_awakening.html';">
+                <img class="gamebtns" src="/stuff/games/smb.png" alt="super mario bros" onclick="window.location.href='/stuff/selfhosted/smb.html';">
+                <img class="gamebtns" src="/stuff/games/kirbyss.jpg" alt="kirby super star" onclick="window.location.href='/stuff/selfhosted/kirbysuperstar.html';">
+                <img class="gamebtns" src="/stuff/games/smw.png" alt="super mario world" onclick="window.location.href='/stuff/selfhosted/smw.html';">
+                <img class="gamebtns" src="/stuff/games/smas.png" alt="super mario all stars" onclick="window.location.href='/stuff/selfhosted/smballstars.html';">
+                <img class="gamebtns" src="/stuff/games/sonic1.png" alt="sonic the hedgehog" onclick="window.location.href='/stuff/selfhosted/sonic1.html';">
+                <img class="gamebtns" src="/stuff/games/sonic2.png" alt="sonic the hedgehog 2" onclick="window.location.href='/stuff/selfhosted/sonic2.html';">
+                <img class="gamebtns" src="/stuff/games/sonic3.png" alt="sonic the hedgehog 3" onclick="window.location.href='/stuff/selfhosted/sonic3.html';">
+                <img class="gamebtns" src="/stuff/games/soniccd.png" alt="sonic cd" onclick="window.location.href='/stuff/selfhosted/soniccd.html';">
+                <img class="gamebtns" src="/stuff/games/advancewars.jpg" alt="advance wars" onclick="window.location.href='/stuff/selfhosted/AdvancedWars.html';">
+                <img class="gamebtns" src="/stuff/games/sma2.png" alt="super mario advance 2" onclick="window.location.href='/stuff/selfhosted/sma2.html';">
+                <img class="gamebtns" src="/stuff/games/sma4.png" alt="super mario advance 4" onclick="window.location.href='/stuff/selfhosted/sma4.html';">
+                <img class="gamebtns" src="/stuff/games/pokemonfirered.jpg" alt="pokemon firered version" onclick="window.location.href='/stuff/selfhosted/PokemonFireRed.html';">
+                <img class="gamebtns" src="/stuff/games/supermonkeybj.png" alt="super monkey ball jr" onclick="window.location.href='/stuff/selfhosted/super-monkey-ball.html';">
+                <img class="gamebtns" src="/stuff/games/crashbandi.png" alt="crash bandicoot" onclick="window.location.href='/stuff/selfhosted/crashbandi.html';">
+                <img class="gamebtns" src="/stuff/games/gta2.png" alt="grand theft auto 2" onclick="window.location.href='/stuff/selfhosted/gta2.html';">
+                <img class="gamebtns" src="/stuff/games/spiderman.jpg" alt="spiderman" onclick="window.location.href='/stuff/selfhosted/spiderman.html';">
+                <img class="gamebtns" src="/stuff/games/vib-ribbon.jpg" alt="vib-ribbon" onclick="window.location.href='/stuff/selfhosted/vib-ribbon.html';">
+                <img class="gamebtns" src="/stuff/games/para.png" alt="parappa the rapper" onclick="window.location.href='/stuff/selfhosted/parappa.html';">
+
+        </div>
+
+    </div>
+
+    <img
+        id="cornerimage"
+        src="/stuff/teto/cornerimage.png"
+        alt=""
+    >
+
+    <script>
+        // Game search/filter functionality - FULLY FUNCTIONAL
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('teachertouchbar');
+            const gameContainer = document.getElementById('mathworksheets');
+            const gameImages = gameContainer.querySelectorAll('.gamebtns');
+            const resourceCount = document.getElementById('resourcecount');
+
+            function getImageCandidates(img) {
+                const currentUrl = new URL(img.src, window.location.href);
+                const currentPath = currentUrl.pathname;
+                const extensionMatch = currentPath.match(/\.(png|jpg|jpeg)$/i);
+                const candidates = [img.src];
+                const gameName = img.alt.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                const folderMatch = img.getAttribute('onclick').match(/selfhosted\/([^/]+)\//);
+                const folderName = folderMatch ? folderMatch[1] : '';
+
+                if (extensionMatch) {
+                    const alternateExtension = extensionMatch[1].toLowerCase() === 'jpg' ? 'png' : 'jpg';
+                    candidates.push(currentPath.replace(/\.(png|jpg|jpeg)$/i, '.' + alternateExtension));
+                }
+
+                if (currentUrl.hostname === 'frogiesarcade.win') {
+                    if (gameName) {
+                        candidates.push(currentUrl.origin + '/stuff/games/' + gameName + '.jpg');
+                        candidates.push(currentUrl.origin + '/stuff/games/' + gameName + '.png');
+                    }
+                    if (folderName) {
+                        candidates.push(currentUrl.origin + '/stuff/games/' + folderName + '.jpg');
+                        candidates.push(currentUrl.origin + '/stuff/games/' + folderName + '.png');
+                    }
+                }
+
+                return [...new Set(candidates)];
+            }
+
+            gameImages.forEach(function(img) {
+                const candidates = getImageCandidates(img);
+                let candidateIndex = 0;
+                img.dataset.gameName = img.alt;
+                img.alt = '';
+
+                function tryNextImage() {
+                    candidateIndex++;
+                    if (candidateIndex < candidates.length) {
+                        img.src = candidates[candidateIndex];
+                    } else {
+                        img.style.visibility = 'hidden';
+                    }
+                }
+
+                img.addEventListener('error', tryNextImage);
+                img.src = candidates[0];
+            });
+
+            // Create a "no results" message
+            const noResultsMsg = document.createElement('div');
+            noResultsMsg.id = 'no-results-message';
+            noResultsMsg.style.cssText = 'text-align:center; padding: 40px; font-size: 18px; color: #999; display: none;';
+            noResultsMsg.textContent = 'No games found matching your search';
+            gameContainer.parentNode.insertBefore(noResultsMsg, gameContainer.nextSibling);
+
+            // Display initial count
+            resourceCount.textContent = gameImages.length + ' games available';
+
+            // Check for search parameter in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchParam = urlParams.get('search');
+            
+            if (searchParam) {
+                searchInput.value = searchParam;
+                // Trigger the search
+                performSearch(searchParam);
+                // Scroll to results
+                gameContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Search functionality
+            searchInput.addEventListener('input', function(e) {
+                performSearch(e.target.value);
+            });
+
+            function performSearch(searchTerm) {
+                searchTerm = searchTerm.toLowerCase().trim();
+                let visibleCount = 0;
+
+                gameImages.forEach(function(img) {
+                    const alt = img.dataset.gameName.toLowerCase();
+                    
+                    if (searchTerm === '' || alt.includes(searchTerm)) {
+                        img.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        img.style.display = 'none';
+                    }
+                });
+
+                // Show/hide no results message
+                if (searchTerm && visibleCount === 0) {
+                    noResultsMsg.style.display = 'block';
+                } else {
+                    noResultsMsg.style.display = 'none';
+                }
+
+                // Update resource count
+                if (searchTerm) {
+                    resourceCount.textContent = visibleCount + ' game' + (visibleCount !== 1 ? 's' : '') + ' found';
+                } else {
+                    resourceCount.textContent = gameImages.length + ' games available';
+                }
+            }
+
+            // Allow Enter key to work too
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                }
+            });
+
+            // Clear search on Escape key
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    performSearch('');
+                    searchInput.focus();
+                }
+            });
+
+            // Add focus styling
+            searchInput.addEventListener('focus', function() {
+                this.style.borderColor = '#be3b32';
+                this.style.boxShadow = '0 0 10px rgba(190, 59, 50, 0.3)';
+            });
+
+            searchInput.addEventListener('blur', function() {
+                this.style.borderColor = '';
+                this.style.boxShadow = '';
+            });
+        });
+    </script>
+
+        <script src="/stuff/js/particles.js"></script>
+        <script src="/stuff/js/site-particles.js"></script>
+        <script src="loading.js"></script>
+        <script src="moresettings.js"></script>
+</body>
+</html>

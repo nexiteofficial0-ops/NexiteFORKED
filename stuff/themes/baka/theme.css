@@ -1,0 +1,64 @@
+:root {
+    --background: #19130a;
+    --dark: #241b0b;
+    --dark-2: #120d05;
+    --red: #f5c542;
+    --red-dark: #825d12;
+    --red-border: #d09e22;
+    --red-glow: rgba(245, 197, 66, 0.45);
+    --border: #4b3711;
+    --settings-border: #f5c542;
+    --theme-corner: url("/stuff/themes/baka/cornerimage.png");
+    --theme-cursor: url("/stuff/themes/baka/cursor.png"), auto;
+    --theme-pointer: url("/stuff/themes/baka/pointer.png"), pointer;
+}
+
+body {
+    background-color: var(--background);
+    color: #fff;
+    font-family: "Quicksand", Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+input,
+select,
+textarea {
+    font-family: "Quicksand", Helvetica, Arial, sans-serif;
+}
+
+button,
+.settings-button,
+.toggle-button,
+.web-frame-button,
+.web-frame-go {
+    background-color: var(--dark);
+    border-color: var(--red-border);
+}
+
+button:hover,
+.settings-button:hover,
+.toggle-button:hover,
+.toggle-button.active,
+.web-frame-button:hover,
+.web-frame-go:hover {
+    background-color: var(--red-dark);
+    border-color: var(--red);
+}
+
+#header,
+#footer {
+    border-color: var(--red-border);
+}
+
+#background {
+    background:
+        radial-gradient(circle at 15% 30%, rgba(245, 197, 66, 0.1), transparent 25%),
+        radial-gradient(circle at 85% 70%, rgba(208, 158, 34, 0.1), transparent 30%);
+}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+		/>
+		<title>Nexite | Private Web Gateway</title>
+		<meta
+			name="description"
+			content="Nexite is a private, focused gateway for exploring the open web."
+		/>
+		<meta
+			name="keywords"
+			content="Nexite, private web gateway, web browser, secure browsing"
+		/>
+		<meta
+			name="theme-color"
+			media="(prefers-color-scheme: dark)"
+			content="#434c5e"
+		/>
+		<meta name="googlebot" content="index, follow, snippet" />
+		<link rel="shortcut icon" content="favicon.ico" />
+		<link rel="stylesheet" href="styles.css" />
+
+		<script src="baremux/index.js"></script>
+		<script src="uv/uv.bundle.js"></script>
+		<script src="uv/uv.config.js"></script>
+
+	</head>
+
+	<body>
+		<div id="background" aria-hidden="true"></div>
+		<div id="lowtaperfade" aria-hidden="true"></div>
+
+		<aside id="site-sidebar" aria-label="site navigation">
+			<a class="sidebar-logo" href="../" title="home" aria-label="home">
+				<img src="../stuff/logo.png" alt="home" />
+			</a>
+			<nav class="sidebar-navigation" aria-label="main navigation">
+				<a href="../math.html" title="math" aria-label="math"><img src="../stuff/icons/calc.svg" alt="math" /></a>
+				<a href="./index.html" title="web" aria-label="web"><img src="../stuff/icons/web.png" alt="web" /></a>
+				<a href="../something.html" title="partners" aria-label="partners"><img src="../stuff/icons/handshake-solid.svg" alt="partners" /></a>
+				<a href="../extras.html" title="extras" aria-label="extras"><img src="../stuff/icons/plus-solid.svg" alt="extras" /></a>
+			</nav>
+			<div class="sidebar-footer">
+				<a href="../something.html" title="profile" aria-label="profile"><img src="../stuff/icons/user.png" alt="profile" /></a>
+				<a href="../settings.html" title="settings" aria-label="settings"><img src="../stuff/icons/settings.png" alt="settings" /></a>
+			</div>
+		</aside>
+
+		<div id="browser-app">
+			<header class="browser-topbar">
+				<a class="brand-mark" href="/" aria-label="Nexite home">
+					<span class="brand-symbol">N</span>
+					<span class="brand-name">NEXITE</span>
+				</a>
+				<div id="tab-list" class="tab-list" role="tablist" aria-label="Open tabs"></div>
+				<button id="new-tab-button" class="chrome-button chrome-button-add" type="button" aria-label="New tab" title="New tab">+</button>
+				<span class="header-status"><span></span> Gateway online</span>
+			</header>
+
+			<section class="browser-toolbar" aria-label="Browser controls">
+				<button id="back-button" class="chrome-button" type="button" aria-label="Go back" title="Back">&#8592;</button>
+				<button id="forward-button" class="chrome-button" type="button" aria-label="Go forward" title="Forward">&#8594;</button>
+				<button id="reload-button" class="chrome-button" type="button" aria-label="Reload page" title="Reload">&#8635;</button>
+				<button id="home-button" class="chrome-button" type="button" aria-label="New tab" title="New tab">&#8962;</button>
+				<form id="uv-form" class="browser-address-form">
+					<input id="uv-search-engine" value="https://duckduckgo.com/?q=%s" type="hidden" />
+					<label class="sr-only" for="uv-address">Search or enter a URL</label>
+					<span class="address-lock" aria-hidden="true">&#9679;</span>
+					<input id="uv-address" class="search-input" type="text" placeholder="Search or enter a URL" autocomplete="url" />
+					<button class="address-go" type="submit" aria-label="Go" title="Go">&#8594;</button>
+				</form>
+				<button id="menu-button" class="chrome-button" type="button" aria-label="Browser menu" title="Menu">&#8942;</button>
+			</section>
+
+			<main id="browser-content">
+				<section id="new-tab-page" class="new-tab-page" aria-label="Nexite new tab">
+					<div class="new-tab-glow" aria-hidden="true"></div>
+					<h1>Make the web<br /><em>yours.</em></h1>
+					<p class="new-tab-copy">A private, focused place to start your next session.</p>
+					<div class="new-tab-search-wrap">
+						<span aria-hidden="true">&#8981;</span>
+						<input id="new-tab-search" type="text" placeholder="Search the web or enter an address" autocomplete="off" />
+						<span class="new-tab-enter">Enter</span>
+					</div>
+					<div class="new-tab-meta"><span class="meta-dot"></span> Private session ready <span class="meta-divider"></span> NEXITE gateway active</div>
+				</section>
+				<div id="frame-container" aria-live="polite"></div>
+				<div class="proxy-error" aria-live="polite"><p id="uv-error"></p><pre id="uv-error-code"></pre></div>
+			</main>
+		</div>
+		<script src="register-sw.js"></script>
+		<script src="search.js"></script>
+		<script src="index.js"></script>
+	</body>
+</html>

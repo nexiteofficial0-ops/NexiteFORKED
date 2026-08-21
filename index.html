@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Martin County School District | Homepage</title>
+
+    <link rel="icon" type="image/svg+xml" href="/stuff/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <script src="/stuff/js/particles.js"></script>
+</head>
+
+<body>
+
+    <!-- =========================
+         PARTICLES / BACKGROUND
+    ========================== -->
+
+    <div id="particles-js"></div>
+    <div id="background"></div>
+    <div id="lowtaperfade"></div>
+
+
+    <!-- =========================
+         LOADING SCREEN
+    ========================== -->
+
+    <div id="loading-screen">
+
+        <div class="spinner">
+            <div style="--rotation:90"></div>
+            <div style="--rotation:180"></div>
+            <div style="--rotation:270"></div>
+            <div style="--rotation:360"></div>
+        </div>
+
+        <h1 id="loading-title">
+            loading the loading...
+        </h1>
+
+        <p id="messageforyou">
+            Getting everything ready...
+        </p>
+
+        <p id="elementcounter">
+            0/0 loaded...
+        </p>
+
+        <button
+            id="skiploading"
+            type="button"
+            onclick="skipLoading()"
+        >
+            Skip
+        </button>
+
+        <div id="loadingbar"></div>
+
+    </div>
+
+
+    <aside id="index-sidebar" aria-label="site navigation">
+        <button class="sidebar-logo" type="button" onclick="location.href='/'" title="home" aria-label="home">
+            <img src="/stuff/logo.png" alt="home">
+        </button>
+
+        <nav class="sidebar-navigation" aria-label="main navigation">
+            <button type="button" onclick="location.href='math.html'" title="math" aria-label="math">
+                <img src="/stuff/icons/calc.svg" alt="math">
+            </button>
+            <button type="button" onclick="location.href='/Ultraviolet-App-main/index.html'" title="web" aria-label="web">
+                <img src="/stuff/icons/web.png" alt="web">
+            </button>
+            <button type="button" onclick="location.href='something.html'" title="partners" aria-label="partners">
+                <img src="/stuff/icons/handshake-solid.svg" alt="partners">
+            </button>
+            <button type="button" onclick="location.href='extras.html'" title="extras" aria-label="extras">
+                <img src="/stuff/icons/plus-solid.svg" alt="extras">
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button type="button" onclick="location.href='something.html'" title="profile" aria-label="profile">
+                <img src="/stuff/icons/user.png" alt="profile">
+            </button>
+            <button type="button" onclick="location.href='settings.html'" title="settings" aria-label="settings">
+                <img src="/stuff/icons/settings.png" alt="settings">
+            </button>
+        </div>
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main id="roddyricchboxhome">
+
+        <h1 id="maintitle">
+            nexite v1
+        </h1>
+
+
+        <!-- =========================
+             6 QUICK APPS
+        ========================== -->
+
+        <div class="quick-apps-container">
+
+            <!-- 1. Minecraft -->
+            <div
+                class="quick-app"
+                onclick="location.href='/stuff/selfhosted/minecraft/index.html'"
+            >
+                <img
+                    src="/stuff/icons/mc.jpg"
+                    class="quick-image"
+                    alt="Minecraft"
+                >
+            </div>
+
+
+            <!-- 2. NexiteOS -->
+            <div
+                class="quick-app"
+                onclick="location.href='/stuff/nexiteos/index.html'"
+            >
+                <img
+                    src="/stuff/icons/0fea066d-5610-4578-aeb6-ccd3e2f01d21.png"
+                    class="quick-image"
+                    alt="NexiteOS"
+                >
+            </div>
+
+
+            <!-- 3. Settings -->
+            <div
+                class="quick-app"
+                onclick="location.href='settings.html'"
+            >
+                <img
+                    src="/stuff/icons/idk.png"
+                    class="quick-image"
+                    alt="Settings"
+                >
+            </div>
+
+
+            <!-- 4. TikTok -->
+            <div
+                class="quick-app"
+                onclick="openSite('https://tiktok.com')"
+            >
+                <img
+                    src="/stuff/icons/tiktok.png"
+                    class="quick-image"
+                    alt="TikTok"
+                >
+            </div>
+
+
+            <!-- 5. Reddit -->
+            <div
+                class="quick-app"
+                onclick="openSite('https://reddit.com')"
+            >
+                <img
+                    src="/stuff/icons/reddit.png"
+                    class="quick-image"
+                    alt="Reddit"
+                >
+            </div>
+
+
+            <!-- 6. Google -->
+            <div
+                class="quick-app"
+                onclick="openSite('https://google.com')"
+            >
+                <img
+                    src="/stuff/icons/google.svg"
+                    class="quick-image"
+                    alt="Google"
+                >
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         CORNER IMAGE
+    ========================== -->
+
+    <img
+        id="cornerimage"
+        src="/stuff/teto/cornerimage.png"
+        alt=""
+    >
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="loading.js"></script>
+    <script src="moresettings.js"></script>
+
+    <script>
+
+        function openSite(url) {
+            window.open(url, "_blank", "noopener");
+        }
+
+
+        function skipLoading() {
+
+            const loadingScreen =
+                document.getElementById("loading-screen");
+
+            const loadingBar =
+                document.getElementById("loadingbar");
+
+            const counter =
+                document.getElementById("elementcounter");
+
+            if (loadingBar) {
+                loadingBar.style.width = "100%";
+            }
+
+            if (counter) {
+                counter.innerText = "done!";
+            }
+
+            if (loadingScreen) {
+                loadingScreen.classList.add("fade-out");
+            }
+        }
+
+
+        /* =========================
+           PARTICLES
+        ========================== */
+
+        particlesJS("particles-js", {
+
+            particles: {
+
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+
+                color: {
+                    value: "#ffffff"
+                },
+
+                shape: {
+                    type: "circle",
+
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+
+                opacity: {
+                    value: 0.5,
+                    random: false,
+
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+
+                size: {
+                    value: 3,
+                    random: true,
+
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+
+                line_linked: {
+                    enable: false,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1
+                },
+
+                move: {
+                    enable: true,
+                    speed: 1.5782952832645452,
+                    direction: "top",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+
+            },
+
+            interactivity: {
+
+                detect_on: "canvas",
+
+                events: {
+
+                    onhover: {
+                        enable: false,
+                        mode: "repulse"
+                    },
+
+                    onclick: {
+                        enable: false,
+                        mode: "repulse"
+                    },
+
+                    resize: true
+                },
+
+                modes: {
+
+                    grab: {
+                        distance: 400,
+
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+
+                    repulse: {
+                        distance: 103.89610389610391,
+                        duration: 0.4
+                    },
+
+                    push: {
+                        particles_nb: 4
+                    },
+
+                    remove: {
+                        particles_nb: 2
+                    }
+
+                }
+
+            },
+
+            retina_detect: true
+
+        });
+
+    </script>
+
+</body>
+
+</html>

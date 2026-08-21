@@ -1,0 +1,12 @@
+:root {
+  --background: #0b1205;
+  --dark: #111d08;
+  --dark-2: #070b03;
+  --red: #b8ff3d;
+  --red-dark: #5f8d17;
+  --red-border: #91c92c;
+  --border: #304b0d;
+  --settings-border: #8f2f2f;
+  --theme-cursor: url("/cursor.png"), auto;
+  --theme-pointer: url("/pointer.png"), pointer;
+}

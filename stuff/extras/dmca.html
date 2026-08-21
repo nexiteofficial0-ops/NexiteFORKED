@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DMCA | Study.com</title>
+
+    <link rel="stylesheet" href="../../styles.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <div id="loading-screen">
+        <div id="loading-content">
+            <div class="spinner">
+                <div style="--rotation:90"></div>
+                <div style="--rotation:180"></div>
+                <div style="--rotation:270"></div>
+                <div style="--rotation:360"></div>
+            </div>
+            <h1 id="loading-title">Loading your education</h1>
+            <p id="messageforyou">Getting everything ready...</p>
+            <p id="elementcounter">0/0 loaded...</p>
+            <button id="skiploading" type="button" onclick="skipLoading()">Skip</button>
+            <div id="loadingbar"></div>
+        </div>
+    </div>
+
+    <!-- TOP BAR -->
+    <div id="header">
+
+        <img
+            class="headericons"
+            src="/stuff/logo.png"
+            alt="Home"
+            style="transform: scale(1.3);"
+            onclick="window.location.href='/'"
+        >
+
+        <div class="right">
+
+            <img
+                class="headericons"
+                src="/stuff/icons/calc.svg"
+                onclick="window.location.href='/math.html/'"
+                alt="Math"
+            >
+
+            <img
+                class="headericons"
+                src="/stuff/icons/web.png"
+                onclick="window.location.href='/Ultraviolet-App-main/index.html'"
+                alt="Reading"
+            >
+
+            <img
+                class="headericons"
+                src="/stuff/icons/handshake-solid.svg"
+                onclick="window.location.href='/partners.html'"
+                alt="Partners"
+            >
+
+            <img
+                class="headericons"
+                src="/stuff/icons/plus-solid.svg"
+                onclick="window.location.href='/extras.html'"
+                alt="Extras"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- DMCA CONTENT -->
+    <main class="dmca-page">
+
+        <div class="dmca-card">
+
+            <h1>DMCA</h1>
+
+            <p class="dmca-subtitle">
+                Copyright infringement notice
+            </p>
+
+            <p>
+                Nexite respects the intellectual property rights of
+                copyright owners and expects its users to do the same.
+            </p>
+
+            <p>
+                If you believe that content available on this website
+                infringes your copyright, you may submit a DMCA notice
+                requesting that the material be reviewed and removed.
+            </p>
+
+            <h2>What to include</h2>
+
+            <p>
+                Please include the following information in your notice:
+            </p>
+
+            <div class="dmca-list">
+                <div>1. Your name and contact information.</div>
+                <div>2. Identification of the copyrighted work.</div>
+                <div>3. The URL or location of the material you believe is infringing.</div>
+                <div>4. A statement that you have a good-faith belief that the use is unauthorized.</div>
+                <div>5. A statement that the information in your notice is accurate.</div>
+                <div>6. Your physical or electronic signature.</div>
+            </div>
+
+            <h2>Submit a notice</h2>
+
+            <p>
+                Send DMCA requests to:
+            </p>
+
+            <a
+                class="dmca-email"
+                href="mailto:frost1@nexite.win"
+            >
+                frost1@nexite.win
+            </a>
+
+            <p class="dmca-note">
+                Replace the email address above with the address you actually
+                use for copyright complaints.
+            </p>
+
+            <button
+                class="dmca-back"
+                onclick="window.location.href='/extras.html'"
+            >
+                back to extras
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- CORNER IMAGE -->
+    <img
+        id="cornerimage"
+        src="/stuff/teto/cornerimage.png"
+        alt=""
+    >
+
+    <div id="lowtaperfade"></div>
+
+    <script src="../../loading.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extras</title>
+    <link rel="icon" type="image/svg+xml" href="/stuff/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="loading-screen">
+        <div id="loading-content">
+            <div class="spinner">
+                <div style="--rotation:90"></div>
+                <div style="--rotation:180"></div>
+                <div style="--rotation:270"></div>
+                <div style="--rotation:360"></div>
+            </div>
+            <h1 id="loading-title">Loading your education</h1>
+            <p id="messageforyou">Getting everything ready...</p>
+            <p id="elementcounter">0/0 loaded...</p>
+            <button id="skiploading" type="button" onclick="skipLoading()">Skip</button>
+            <div id="loadingbar"></div>
+        </div>
+    </div>
+
+    <div id="header">
+        <img
+            class="headericons"
+            src="/stuff/logo.png"
+            alt="Home"
+            style="transform: scale(1.3);"
+            onclick="window.location.href='/'"
+        >
+
+        <div class="right">
+            <img class="headericons" src="/stuff/icons/calc.svg" alt="Math" onclick="window.location.href='/math.html'">
+            <img class="headericons" src="/stuff/icons/web.png" alt="Web" onclick="window.location.href='/Ultraviolet-App-main/index.html'">
+            <img class="headericons" src="/stuff/icons/handshake-solid.svg" alt="Partners" onclick="window.location.href='/partners.html'">
+            <img class="headericons" src="/stuff/icons/plus-solid.svg" alt="Extras" onclick="window.location.href='/extras.html'">
+        </div>
+    </div>
+
+    <main id="roddyricchboxselect" style="padding-top: 40px;">
+        <h1 id="title">extras</h1>
+
+        <div id="mathworksheets" style="display:flex; flex-wrap:wrap; gap: 20px; justify-content:center;">
+            <img class="gamebtns" src="/stuff/icons/plus-solid.svg" alt="DMCA" onclick="window.location.href='/stuff/extras/dmca.html'">
+            <img class="gamebtns" src="/stuff/logo.png" alt="Home" onclick="window.location.href='/'">
+        </div>
+    </main>
+
+    <img
+        id="cornerimage"
+        src="/stuff/teto/cornerimage.png"
+        alt=""
+    >
+
+    <script src="/stuff/js/particles.js"></script>
+    <script src="/stuff/js/site-particles.js"></script>
+    <script src="loading.js"></script>
+    <script src="moresettings.js"></script>
+</body>
+</html>
