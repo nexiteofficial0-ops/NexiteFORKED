@@ -284,7 +284,7 @@
     <div id="game-area">
         <iframe
             id="game-frame"
-            src="https://frogiesarcade.win/stuff/selfhosted/rooftop-snipers-2/"
+            src="about:blank" data-game-url="https://frogiesarcade.win/stuff/selfhosted/rooftop-snipers-2/"
             allowfullscreen
             allow="fullscreen; autoplay; gamepad"
         ></iframe>
@@ -320,16 +320,14 @@
 
 </div>
 
+<script src="/uv/uv.bundle.js"></script>
+<script src="/uv/uv.config.js"></script>
+<script src="/baremux/index.js"></script>
+<script src="/Ultraviolet-App-main/register-sw.js"></script>
+<script src="/game-proxy.js"></script>
 <script>
 const gameFrame = document.getElementById("game-frame");
 
-const gameURL = sessionStorage.getItem("gameURL");
-
-if (gameURL) {
-    gameFrame.src = gameURL;
-} else {
-    gameFrame.src = "https://frogiesarcade.win/stuff/selfhosted/rooftop-snipers-2/";
-}
 
 function reloadGame() {
     gameFrame.src = gameFrame.src;
