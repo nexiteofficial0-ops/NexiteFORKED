@@ -88,113 +88,6 @@
             background: #000;
         }
 
-        #sidebar {
-            width: 190px;
-            flex-shrink: 0;
-
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-
-            padding: 12px;
-
-            background: rgba(29, 9, 9, 0.9);
-
-            border: 3px solid #251515;
-            border-radius: 20px;
-
-            backdrop-filter: blur(8px);
-
-            box-shadow:
-                0 10px 35px rgba(0, 0, 0, 0.3);
-        }
-
-        #game-picture {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-
-            object-fit: cover;
-
-            border-radius: 15px;
-            border: 3px solid #251515;
-
-            background: #180909;
-
-            transition: 0.2s ease;
-        }
-
-        #game-picture:hover {
-            border-color: #be3b32;
-
-            box-shadow:
-                0 0 12px rgba(190, 59, 50, 0.4);
-        }
-
-        #game-title {
-            margin: 4px 0 5px;
-
-            font-size: 18px;
-            font-weight: 700;
-
-            text-align: center;
-
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        #game-subtitle {
-            margin: 0 0 8px;
-
-            color: #777;
-            font-size: 11px;
-
-            text-align: center;
-        }
-
-        .player-button {
-            width: 100%;
-            min-height: 45px;
-
-            padding: 10px 12px;
-
-            border: 3px solid #251515;
-            border-radius: 13px;
-
-            background: #180909;
-            color: white;
-
-            font-family: "Quicksand", sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-
-            transition: 0.2s ease;
-        }
-
-        .player-button:hover {
-            background: #83261f;
-
-            border-color: #be3b32;
-
-            box-shadow:
-                0 0 10px rgba(190, 59, 50, 0.5),
-                0 0 20px rgba(190, 59, 50, 0.25);
-
-            transform: translateY(-1px);
-        }
-
-        .player-button:active {
-            transform: scale(0.98);
-        }
-
-        #back-button {
-            color: #aaa;
-        }
-
-        #back-button:hover {
-            color: white;
-        }
-
         #game-area:fullscreen {
             width: 100vw;
             height: 100vh;
@@ -215,50 +108,6 @@
                 min-height: 0;
             }
 
-            #sidebar {
-                width: 100%;
-                height: 125px;
-
-                flex-direction: row;
-                align-items: center;
-
-                padding: 8px;
-            }
-
-            #game-picture {
-                width: 90px;
-                height: 90px;
-                flex-shrink: 0;
-            }
-
-            .sidebar-info {
-                flex: 1;
-                min-width: 0;
-            }
-
-            #game-title {
-                text-align: left;
-                margin: 0 0 3px;
-            }
-
-            #game-subtitle {
-                text-align: left;
-                margin: 0;
-            }
-
-            .sidebar-buttons {
-                width: 125px;
-
-                display: flex;
-                flex-direction: column;
-                gap: 6px;
-            }
-
-            .player-button {
-                min-height: 40px;
-                padding: 7px;
-                font-size: 12px;
-            }
         }
     </style>
 </head>
@@ -274,36 +123,6 @@
             allowfullscreen
             allow="fullscreen; autoplay; gamepad"
         ></iframe>
-    </div>    <aside id="index-sidebar" aria-label="site navigation">
-        <button class="sidebar-logo" type="button" onclick="location.href='/'" title="home" aria-label="home">
-            <img src="/stuff/logo.png" alt="home">
-        </button>
-
-        <nav class="sidebar-navigation" aria-label="main navigation">
-            <button type="button" onclick="location.href='/math.html'" title="math" aria-label="math">
-                <img src="/stuff/icons/calc.svg" alt="math">
-            </button>
-            <button type="button" onclick="location.href='/Ultraviolet-App-main/index.html'" title="web" aria-label="web">
-                <img src="/stuff/icons/web.png" alt="web">
-            </button>
-            <button type="button" onclick="location.href='/partners.html'" title="partners" aria-label="partners">
-                <img src="/stuff/icons/handshake-solid.svg" alt="partners">
-            </button>
-            <button type="button" onclick="location.href='/extras.html'" title="extras" aria-label="extras">
-                <img src="/stuff/icons/plus-solid.svg" alt="extras">
-            </button>
-        </nav>
-
-        <div class="sidebar-footer">
-            <button type="button" onclick="location.href='/user.html'" title="profile" aria-label="profile">
-                <img src="/stuff/icons/user.png" alt="profile">
-            </button>
-            <button type="button" onclick="location.href='/settings.html'" title="settings" aria-label="settings">
-                <img src="/stuff/icons/settings.png" alt="settings">
-            </button>
-        </div>
-    </aside>
-
 </div>
 
 <script>
