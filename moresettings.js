@@ -15,6 +15,18 @@
         evil: "/stuff/themes/evil/theme.css"
     };
 
+    const themeVariables = {
+        default: ["#270f0f", "#180909", "#120707", "#ff4545", "#83261f", "#be3b32", "#251515"],
+        baka: ["#19130a", "#251c0c", "#100c05", "#f5c542", "#9b7621", "#f5c542", "#4b3a16"],
+        miku: ["#071b1c", "#08272a", "#041415", "#54e3c2", "#187a70", "#39bca3", "#164c4c"],
+        meximath: ["#211307", "#2d1a08", "#170d04", "#f5a524", "#965c0d", "#d98712", "#56340c"],
+        truffled: ["#1d1f22", "#292c31", "#141619", "#aeb4bc", "#626a74", "#8f98a3", "#454b53"],
+        purple: ["#150d2b", "#211344", "#0d071c", "#b084ff", "#6037a4", "#8e66d8", "#39236c"],
+        sakura: ["#260e1c", "#351225", "#180910", "#ff9fc7", "#9a4770", "#d777a3", "#5a2940"],
+        firey: ["#260b05", "#351008", "#170603", "#ff6b21", "#a13c10", "#db5318", "#5d210d"],
+        evil: ["#0b1205", "#17220a", "#070c03", "#b8ff3d", "#587a1c", "#8f2f2f", "#293b12"]
+    };
+
     const defaults = {
         theme: "default",
         particles: true,
@@ -88,8 +100,10 @@
             applyCornerImage(theme);
             applyCursors(settingsOverride || getSettings());
         }, { once: true });
-        stylesheet.href = themeFiles[theme] || themeFiles.default;
         document.body.dataset.theme = themeFiles[theme] ? theme : "default";
+        const variables = themeVariables[theme] || themeVariables.default;
+        ["--background", "--dark", "--dark-2", "--red", "--red-dark", "--red-border", "--border"].forEach((name, index) => document.documentElement.style.setProperty(name, variables[index]));
+        stylesheet.href = themeFiles[theme] || themeFiles.default;
         applyCornerImage(theme);
         return stylesheet;
     }
@@ -133,11 +147,11 @@
             <nav class="sidebar-navigation" aria-label="main navigation">
                 <button type="button" onclick="location.href='math.html'" title="math" aria-label="math"><img src="/stuff/icons/calc.svg" alt="math"></button>
                 <button type="button" onclick="location.href='/Ultraviolet-App-main/index.html'" title="web" aria-label="web"><img src="/stuff/icons/web.png" alt="web"></button>
-                <button type="button" onclick="location.href='something.html'" title="partners" aria-label="partners"><img src="/stuff/icons/handshake-solid.svg" alt="partners"></button>
+                <button type="button" onclick="location.href='partners.html'" title="partners" aria-label="partners"><img src="/stuff/icons/handshake-solid.svg" alt="partners"></button>
                 <button type="button" onclick="location.href='extras.html'" title="extras" aria-label="extras"><img src="/stuff/icons/plus-solid.svg" alt="extras"></button>
             </nav>
             <div class="sidebar-footer">
-                <button type="button" onclick="location.href='something.html'" title="profile" aria-label="profile"><img src="/stuff/icons/user.png" alt="profile"></button>
+                <button type="button" onclick="location.href='user.html'" title="profile" aria-label="profile"><img src="/stuff/icons/user.png" alt="profile"></button>
                 <button type="button" onclick="location.href='settings.html'" title="settings" aria-label="settings"><img src="/stuff/icons/settings.png" alt="settings"></button>
             </div>
         `;
