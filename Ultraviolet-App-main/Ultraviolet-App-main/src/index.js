@@ -37,11 +37,15 @@ server.on("request", (req, res) => {
 	app(req, res);
 });
 server.on("upgrade", (req, socket, head) => {
-	if (req.url.endsWith("/wisp/")) {
-		wisp.routeRequest(req, socket, head);
-		return;
-	} 
-	socket.end();
+	try {
+		if (req.url?.endsWith("/wisp/")) {
+			wisp.routeRequest(req, socket, head);
+			return;
+		}
+	} catch (error) {
+		console.error("Wisp connection failed:", error);
+	}
+	if (!socket.destroyed) socket.destroy();
 });
 
 let port = parseInt(process.env.PORT || "");
