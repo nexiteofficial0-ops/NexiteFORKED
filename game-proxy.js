@@ -2,7 +2,9 @@
 
 const proxyGameFrame = document.getElementById("game-frame");
 const configuredGameUrl = proxyGameFrame?.dataset.gameUrl;
-const gameUrl = sessionStorage.getItem("gameURL") || configuredGameUrl;
+const alternateGameHost = "https://xn--68ja2bjb6b6c1ea6n6586bf9xa0k0e3pze.xyz";
+const gameUrl = (sessionStorage.getItem("gameURL") || configuredGameUrl || "")
+    .replace(/^https:\/\/frogiesarcade\.win/, alternateGameHost);
 
 function showGameError(error) {
     const message = document.createElement("p");
