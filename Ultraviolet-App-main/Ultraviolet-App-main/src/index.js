@@ -13,9 +13,11 @@ const app = express();
 const projectRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const publicPath = join(projectRoot, "public");
 const workspacePath = join(projectRoot, "..", "..");
+const cherriPath = join(workspacePath, "cherri-cloudflare-main (1)", "cherri-cloudflare-main");
 // Load our publicPath first and prioritize it over UV.
 app.use(express.static(workspacePath));
 app.use(express.static(publicPath));
+app.use(express.static(cherriPath));
 app.use("/Ultraviolet-App-main/", express.static(publicPath));
 // Load vendor files last.
 // The vendor's uv.config.js won't conflict with our uv.config.js inside the publicPath directory.
