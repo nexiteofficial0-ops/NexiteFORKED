@@ -5,6 +5,7 @@ const form = document.getElementById("uv-form");
 const address = document.getElementById("uv-address");
 const searchEngine = document.getElementById("uv-search-engine");
 const newTabPage = document.getElementById("new-tab-page");
+const newTabForm = document.getElementById("new-tab-form");
 const newTabSearch = document.getElementById("new-tab-search");
 const frameContainer = document.getElementById("frame-container");
 const tabList = document.getElementById("tab-list");
@@ -165,17 +166,17 @@ form.addEventListener("submit", (event) => {
 	navigate(address.value);
 });
 
+newTabForm.addEventListener("submit", (event) => {
+	event.preventDefault();
+	address.value = newTabSearch.value;
+	navigate(newTabSearch.value);
+});
+
 newTabSearch.addEventListener("keydown", (event) => {
 	if (event.key === "Enter") {
 		event.preventDefault();
-		address.value = newTabSearch.value;
-		navigate(newTabSearch.value);
+		newTabForm.requestSubmit();
 	}
-});
-
-document.getElementById("new-tab-enter").addEventListener("click", () => {
-	address.value = newTabSearch.value;
-	navigate(newTabSearch.value);
 });
 
 document.getElementById("new-tab-button").addEventListener("click", () => {
