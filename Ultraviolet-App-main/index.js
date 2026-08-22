@@ -145,7 +145,7 @@ async function navigate(input) {
 	updateNavigationButtons();
 	try {
 		await registerSW();
-		const wispUrl = "wss://www.cherri-education.online/socket/";
+		const wispUrl = `${location.protocol === "https:" ? "wss" : "ws"}://${location.host}/wisp/`;
 		const transportReady = (async () => {
 			if ((await connection.getTransport()) !== "/epoxy/index.mjs") {
 				await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
