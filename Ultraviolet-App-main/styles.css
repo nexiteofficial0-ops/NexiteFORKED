@@ -2801,12 +2801,21 @@ kbd {
 }
 
 .new-tab-enter {
+    font: inherit;
     padding: 5px 7px;
     color: #927979;
+    background: transparent;
     border: 1px solid #392020;
     border-radius: 5px;
     font-size: 10px;
     text-transform: uppercase;
+    cursor: pointer;
+}
+
+.new-tab-enter:hover,
+.new-tab-enter:focus-visible {
+    color: #fff;
+    border-color: var(--red);
 }
 
 .new-tab-meta {

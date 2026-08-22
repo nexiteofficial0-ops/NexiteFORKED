@@ -173,6 +173,11 @@ newTabSearch.addEventListener("keydown", (event) => {
 	}
 });
 
+document.getElementById("new-tab-enter").addEventListener("click", () => {
+	address.value = newTabSearch.value;
+	navigate(newTabSearch.value);
+});
+
 document.getElementById("new-tab-button").addEventListener("click", () => {
 	const tab = createTab();
 	activateTab(tab.id);
