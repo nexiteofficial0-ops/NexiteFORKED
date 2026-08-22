@@ -2144,3 +2144,7 @@ button {
         font-size: 10px;
     }
 }
+
+#cornerimage {
+    display: none !important;
+}
