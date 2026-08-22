@@ -1,0 +1,23 @@
+@font-face {
+    font-family: onest;
+    src: url("/assets/fonts/onest.ttf");
+}
+
+@font-face {
+    font-family: inter;
+    src: url("/assets/fonts/inter.ttf");
+}
+
+@font-face {
+    font-family: geist;
+    src: url("/assets/fonts/geist.ttf");
+}
+
+@font-face {
+    font-family: lexend;
+    src: url("/assets/fonts/lexend.ttf");
+}
+
+* {
+    font-family: lexend, sans-serif;
+}

@@ -122,6 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "miku got into my wifi, and now she is in my dedicated server 💔",
         "nexite v2 when?",
         "yeah yeah shut up kaden",
+        "my dih big",
+        "eat my ahh"
 
     ];
 
