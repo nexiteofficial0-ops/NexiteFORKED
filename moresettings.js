@@ -145,7 +145,7 @@
                 <img src="/stuff/logo.png" alt="home">
             </button>
             <nav class="sidebar-navigation" aria-label="main navigation">
-                <button type="button" onclick="location.href='/cherri-cloudflare-main/cherri-cloudflare-main/index.html'" title="games" aria-label="games"><img src="/stuff/icons/calc.svg" alt="games"></button>
+                <button type="button" onclick="location.href='cherri-cloudflare-main/cherri-cloudflare-main/index.html'" title="games" aria-label="games"><img src="/stuff/icons/calc.svg" alt="games"></button>
                 <button type="button" onclick="location.href='/Ultraviolet-App-main/index.html'" title="web" aria-label="web"><img src="/stuff/icons/web.png" alt="web"></button>
                 <button type="button" onclick="location.href='partners.html'" title="partners" aria-label="partners"><img src="/stuff/icons/handshake-solid.svg" alt="partners"></button>
                 <button type="button" onclick="location.href='extras.html'" title="extras" aria-label="extras"><img src="/stuff/icons/plus-solid.svg" alt="extras"></button>
